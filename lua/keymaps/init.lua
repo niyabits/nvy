@@ -4,6 +4,7 @@ local vnoremap = Utils.vnoremap
 local xnoremap = Utils.xnoremap
 local inoremap = Utils.inoremap
 local tnoremap = Utils.tnoremap
+local nmap = Utils.tnoremap
 
 ----------
 -- Vim --
@@ -26,6 +27,14 @@ inoremap('<C-s>', '<Esc>:w<CR>gi')
 
 -- Source Configuration
 nnoremap('<leader><CR>', ':luafile %<CR>')
+
+-- Semicolon to Run Commands
+nnoremap(';', ':')
+vnoremap(';', ':')
+
+-- , + p to paste the Yank register
+nmap(',p', '"0p')
+nmap(',P', '"0P')
 
 
 --------------
@@ -142,6 +151,11 @@ inoremap('<C-h>', '<Esc>:wincmd h<CR>i')
 inoremap('<C-j>', '<Esc>:wincmd j<CR>i')
 inoremap('<C-k>', '<Esc>:wincmd k<CR>i')
 inoremap('<C-l>', '<Esc>:wincmd l<CR>i')
+
+nnoremap('<left>', ':wincmd h<CR>')
+nnoremap('<down>', ':wincmd j<CR>')
+nnoremap('<up>', ':wincmd k<CR>')
+nnoremap('<right>', ':wincmd l<CR>')
 
 -- Resize
 -- M is the ALT key

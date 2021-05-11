@@ -1,82 +1,81 @@
 return require('packer').startup(function()
-  -- Plugin Manager
-  use 'wbthomason/packer.nvim'
+    -- Plugin Manager
+    use 'wbthomason/packer.nvim'
 
-  -- LSP
-  use 'neovim/nvim-lspconfig'
-  use 'glepnir/lspsaga.nvim'
-  use 'onsails/lspkind-nvim'
-  use 'folke/lsp-trouble.nvim'
-  use 'mattn/efm-langserver'
-  
-  -- LSP Installer
-  use 'kabouzeid/nvim-lspinstall'
+    -- LSP
+    use 'neovim/nvim-lspconfig'
+    use 'glepnir/lspsaga.nvim'
+    use 'onsails/lspkind-nvim'
+    use 'folke/lsp-trouble.nvim'
+    use 'mattn/efm-langserver'
 
-  -- Completion
-  use 'hrsh7th/nvim-compe'
+    -- LSP Installer
+    use 'kabouzeid/nvim-lspinstall'
 
-  -- Syntax
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'nvim-treesitter/nvim-treesitter-refactor'
-  use 'nvim-telescope/telescope-media-files.nvim'
-  use 'nvim-treesitter/playground'
+    -- Completion
+    use 'hrsh7th/nvim-compe'
 
-  -- Terminal Integration
-  use 'akinsho/nvim-toggleterm.lua'
+    -- Syntax
+    use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-treesitter/nvim-treesitter-refactor'
+    use 'nvim-telescope/telescope-media-files.nvim'
+    use 'nvim-treesitter/playground'
 
-  -- Snippets
-  use 'hrsh7th/vim-vsnip'
+    -- Terminal Integration
+    use 'akinsho/nvim-toggleterm.lua'
 
-  -- Fuzzy Finder
-  use 'nvim-telescope/telescope.nvim'
+    -- Snippets
+    use 'hrsh7th/vim-vsnip'
 
-  -- Colorscheme
-  use 'marko-cerovac/material.nvim'
-  use 'folke/tokyonight.nvim'
-  use 'bluz71/vim-nightfly-guicolors'
-  use 'mhartington/oceanic-next'
-  
-  -- Icons
-  use 'kyazdani42/nvim-web-devicons'
-  -- use 'yamatsum/nvim-nonicons'
+    -- Fuzzy Finder
+    use 'nvim-telescope/telescope.nvim'
 
-  -- Lua Utils
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
+    -- Colorscheme
+    use 'marko-cerovac/material.nvim'
+    use 'folke/tokyonight.nvim'
+    use 'bluz71/vim-nightfly-guicolors'
+    use 'mhartington/oceanic-next'
+    use 'lewis6991/moonlight.vim'
+	use 'christianchiarulli/nvcode-color-schemes.vim'
 
-  -- Tabline
-  use 'romgrk/barbar.nvim'
+    -- Icons
+    use 'kyazdani42/nvim-web-devicons'
+    -- use 'yamatsum/nvim-nonicons'
 
-  -- Statusline
-  use {
-    'glepnir/galaxyline.nvim',
-    branch = 'main',
-  }
-  
-  -- Indent
-  use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'} 
+    -- Lua Utils
+    use 'nvim-lua/popup.nvim'
+    use 'nvim-lua/plenary.nvim'
 
-  -- File Explorer
-  use 'kyazdani42/nvim-tree.lua'
+    -- Tabline
+    use 'romgrk/barbar.nvim'
 
-  -- Git
-  use 'lewis6991/gitsigns.nvim'
-  use 'TimUntersberger/neogit'
-  use 'ruifm/gitlinker.nvim'
+    -- Statusline
+    use {'glepnir/galaxyline.nvim', branch = 'main'}
 
-  -- Comment
-  use 'b3nj5m1n/kommentary'
+    -- Indent
+    use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
 
-  -- Quickfix
-  use 'kevinhwang91/nvim-bqf'
+    -- File Explorer
+    use 'kyazdani42/nvim-tree.lua'
 
-  -- Editing Supports
-  use 'windwp/nvim-ts-autotag'
-  use 'windwp/nvim-autopairs'
-  use 'p00f/nvim-ts-rainbow'
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
+    -- Git
+    use 'lewis6991/gitsigns.nvim'
+    use 'TimUntersberger/neogit'
+    use 'ruifm/gitlinker.nvim'
 
-  -- Sessions
-  use 'rmagatti/auto-session'
+    -- Comment
+    use 'b3nj5m1n/kommentary'
+
+    -- Quickfix
+    use 'kevinhwang91/nvim-bqf'
+
+    -- Editing Supports
+    use 'windwp/nvim-ts-autotag'
+    use 'windwp/nvim-autopairs'
+    use 'p00f/nvim-ts-rainbow'
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
+
+    -- Sessions
+    use 'rmagatti/auto-session'
 end)
 

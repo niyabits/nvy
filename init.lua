@@ -16,3 +16,4 @@ require('plugins/telescope')
 require('plugins/treesitter')
 
 require('lsp')
+require('lsp/efm-langserver')
