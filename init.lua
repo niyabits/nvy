@@ -16,4 +16,11 @@ require('plugins/telescope')
 require('plugins/treesitter')
 
 require('lsp')
+require('lsp/tsserver')
+require('lsp/json')
+require('lsp/graphql')
+require('lsp/html')
+require('lsp/css')
+require('lsp/sumneko-lua')
 require('lsp/efm-langserver')
+

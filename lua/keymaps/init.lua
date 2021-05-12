@@ -36,14 +36,12 @@ vnoremap(';', ':')
 nmap(',p', '"0p')
 nmap(',P', '"0P')
 
-
 --------------
 -- General --
 --------------
 
 nnoremap('<C-S-p>', ':echo \'Show Command Pallet\'<CR>')
 nnoremap('<C-,>', ':echo \'User Settings \'<CR>')
-
 
 -------------------
 -- Basic Editing --
@@ -69,7 +67,6 @@ vim.api.nvim_set_keymap("v", "<C-/>", "<Plug>kommentary_visual_default", {})
 
 nnoremap('<C-p>', ':Telescope git_files<CR>')
 
-
 ------------------------
 -- Search and Replace --
 ------------------------
@@ -93,9 +90,11 @@ vnoremap('<leader>ca', ':<C-U>Lspsaga range_code_action<CR>')
 nnoremap('K', ':Lspsaga hover_doc<CR>')
 
 -- scroll down hover doc or scroll in definition preview
-nnoremap('<C-f>', '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')
+nnoremap('<C-f>',
+         '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')
 -- scroll up hover doc
-nnoremap('<C-b>', '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>')
+nnoremap('<C-b>',
+         '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>')
 
 -- Signature Help
 nnoremap('gs', ':Lspsaga signature_help<CR>')
@@ -108,7 +107,8 @@ nnoremap('gd', ':Lspsaga preview_definition<CR>')
 
 -- Show Diagnostic
 nnoremap('ge', ':Lspsaga show_cursor_diagnostics<CR>')
-vim.cmd('autocmd CursorHold * lua require\'lspsaga.diagnostic\'.show_cursor_diagnostics()')
+vim.cmd(
+    'autocmd CursorHold * lua require\'lspsaga.diagnostic\'.show_cursor_diagnostics()')
 
 -- Jump Diagnostic
 nnoremap('<F8>', ':Lspsaga diagnostic_jump_next<CR>')
@@ -128,7 +128,6 @@ nnoremap('<leader>xq', '<cmd>LspTroubleToggle quickfix<cr>')
 nnoremap('<leader>xl', '<cmd>LspTroubleToggle loclist<cr>')
 nnoremap('gR', '<cmd>LspTroubleToggle lsp_references<cr>')
 
-
 -----------------------
 -- Editor Management --
 -----------------------
@@ -139,7 +138,9 @@ inoremap('<C-w>', '<Esc>:BufferClose<CR>i')
 
 -- Split Editor
 nnoremap('<C-\\>', ':vsplit<CR>')
+nnoremap('<C-S-\\>', ':split<CR>')
 inoremap('<C-\\>', '<Esc>:vsplit<CR>i')
+inoremap('<C-S-\\>', '<Esc>:split<CR>i')
 
 -- Navigate Between Windows
 nnoremap('<C-h>', ':wincmd h<CR>')
@@ -161,6 +162,8 @@ nnoremap('<right>', ':wincmd l<CR>')
 -- M is the ALT key
 nnoremap('<M-h>', ':vertical resize -2<CR>')
 nnoremap('<M-l>', ':vertical resize +2<CR>')
+nnoremap('<C-M-j>', ':resize +2<CR>')
+nnoremap('<C-M-k>', ':resize -2<CR>')
 
 ---------------------
 -- File Management --
@@ -169,12 +172,10 @@ nnoremap('<M-l>', ':vertical resize +2<CR>')
 nnoremap('<TAB>', ':BufferPrevious<CR>')
 nnoremap('<S-TAB>', ':BufferNext<CR>')
 
-
 -------------
 -- Display --
 -------------
 nnoremap('<C-e>', ':NvimTreeToggle<CR>')
-
 
 -----------
 -- Debug --

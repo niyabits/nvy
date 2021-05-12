@@ -11,7 +11,8 @@ local eslint = {
     lintStdin = true,
     lintFormats = {"%f:%l:%c: %m"},
     rootMarkers = {
-        '','.eslintrc.js', '.eslintrc.cjs', '.eslintrc.yaml', '.eslintrc.yml', '.eslintrc.json', '.git', 'package.json'
+        '', '.eslintrc.js', '.eslintrc.cjs', '.eslintrc.yaml', '.eslintrc.yml',
+        '.eslintrc.json', '.git', 'package.json'
     }
 }
 
@@ -26,8 +27,10 @@ require"lspconfig".efm.setup {
 
     init_options = {documentFormatting = true},
 
-	-- TODO: Add typescriptreact and javascriptreact
-    filetypes = {"typescript", "javascript", "lua"},
+    -- TODO: Add typescriptreact and javascriptreact
+    filetypes = {
+        "typescript", "javascript", 'typescriptreact', 'javascriptreact', "lua"
+    },
 
     settings = {
         rootMarkers = {"package.json", "tsconfig.json", ".git/"},
@@ -35,9 +38,9 @@ require"lspconfig".efm.setup {
             lua = {luaFormat},
             -- TODO: Add Prettier after ESLint is fixed
             typescript = {eslint, prettier},
-            javascript = {prettier},
-            typescriptreact = {prettier},
-            javascriptreact = {prettier}
+            javascript = {eslint, prettier},
+            typescriptreact = {eslint, prettier},
+            javascriptreact = {eslint, prettier}
         }
     }
 }
