@@ -27,7 +27,6 @@ require"lspconfig".efm.setup {
 
     init_options = {documentFormatting = true},
 
-    -- TODO: Add typescriptreact and javascriptreact
     filetypes = {
         "typescript", "javascript", 'typescriptreact', 'javascriptreact', "lua"
     },
@@ -36,7 +35,6 @@ require"lspconfig".efm.setup {
         rootMarkers = {"package.json", "tsconfig.json", ".git/"},
         languages = {
             lua = {luaFormat},
-            -- TODO: Add Prettier after ESLint is fixed
             typescript = {eslint, prettier},
             javascript = {eslint, prettier},
             typescriptreact = {eslint, prettier},

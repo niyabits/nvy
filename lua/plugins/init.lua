@@ -77,5 +77,8 @@ return require('packer').startup(function()
 
     -- Sessions
     use 'rmagatti/auto-session'
+
+    -- Keybinds
+    use 'folke/which-key.nvim'
 end)
 

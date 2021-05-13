@@ -14,6 +14,7 @@ require('plugins/nvim-toggleterm')
 require('plugins/nvim-tree')
 require('plugins/telescope')
 require('plugins/treesitter')
+require('plugins/which-key')
 
 require('lsp')
 require('lsp/tsserver')
@@ -23,4 +24,3 @@ require('lsp/html')
 require('lsp/css')
 require('lsp/sumneko-lua')
 require('lsp/efm-langserver')
-

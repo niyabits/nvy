@@ -15,6 +15,7 @@ vim.o.showtabline = 2					-- Always Show Tabline
 vim.o.clipboard = "unnamedplus"			-- Copy Paste
 vim.o.completeopt = "menuone,noselect"  -- Required by nvim-compe
 vim.o.updatetime = 300 
+vim.o.timeoutlen = 250
 
 vim.wo.number = true					-- Line Numbers
 vim.wo.cursorline = true				-- Highlight Cursor Location

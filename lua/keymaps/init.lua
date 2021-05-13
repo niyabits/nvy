@@ -1,4 +1,6 @@
+local wk = require("which-key")
 local Utils = require('keymaps/utils')
+
 local nnoremap = Utils.nnoremap
 local vnoremap = Utils.vnoremap
 local xnoremap = Utils.xnoremap
@@ -32,9 +34,19 @@ nnoremap('<leader><CR>', ':luafile %<CR>')
 nnoremap(';', ':')
 vnoremap(';', ':')
 
--- , + p to paste the Yank register
-nmap(',p', '"0p')
-nmap(',P', '"0P')
+-- Telescope 
+
+wk.register({
+    t = {
+        name = "Telescope", -- optional group name
+        c = {
+            "<cmd>lua require('plugins/telescope').nvim_config()<CR>",
+            "Neovim Config",
+            noremap = true
+        },
+        g = {"<cmd>Telescope live_grep<CR>", "Grep"}
+    }
+}, {prefix = "<leader>"})
 
 --------------
 -- General --
@@ -83,8 +95,24 @@ nnoremap('<C-p>', ':Telescope git_files<CR>')
 nnoremap('gh', ':Lspsaga lsp_finder<CR>')
 
 -- Code Action
+wk.register({
+    c = {
+        name = "code", -- optional group name
+        a = {":Lspsaga code_action<CR>", "Code Action", noremap = true}
+    }
+}, {prefix = "<leader>"})
+
+wk.register({
+    c = {
+        name = "code",
+        a = {":Lspsaga range_code_action<CR>", "Range Code Action"}
+    }
+}, {mode = "v", prefix = "<leader>"})
+
+--[[
 nnoremap('<leader>ca', ':Lspsaga code_action<CR>')
-vnoremap('<leader>ca', ':<C-U>Lspsaga range_code_action<CR>')
+vnoremap('<leader>ca', ':<C-U>Lspsaga range_code_action<CR>') 
+]]
 
 -- Hover Doc
 nnoremap('K', ':Lspsaga hover_doc<CR>')
@@ -121,12 +149,28 @@ nnoremap('gD', '<cmd>lua vim.lsp.buf.definition()<CR>')
 nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 
 -- LSP Trouble
-nnoremap('<leader>xx', '<cmd>LspTroubleToggle<cr>')
-nnoremap('<leader>xw', '<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>')
-nnoremap('<leader>xd', '<cmd>LspTroubleToggle lsp_document_diagnostics<cr>')
-nnoremap('<leader>xq', '<cmd>LspTroubleToggle quickfix<cr>')
-nnoremap('<leader>xl', '<cmd>LspTroubleToggle loclist<cr>')
-nnoremap('gR', '<cmd>LspTroubleToggle lsp_references<cr>')
+wk.register({
+    x = {
+        name = "trouble", -- optional group name
+        t = {"<cmd>LspTroubleToggle<cr>", "Toggle", noremap = true},
+        w = {
+            "<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>",
+            "Workspace Diagnostics",
+            noremap = true
+        },
+        d = {
+            "<cmd>LspTroubleToggle lsp_document_diagnostics<cr>",
+            "Document Diagnostics",
+            noremap = true
+        },
+        q = {
+            "<cmd>LspTroubleToggle quickfix<cr>",
+            "Quickfix List",
+            noremap = true
+        },
+        l = {"<cmd>LspTroubleToggle loclist<cr>", " Local List", noremap = true}
+    }
+}, {prefix = "<leader>"})
 
 -----------------------
 -- Editor Management --
