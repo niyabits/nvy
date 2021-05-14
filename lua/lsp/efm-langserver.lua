@@ -1,12 +1,12 @@
 local luaFormat = {formatCommand = "lua-format -i", formatStdin = true}
 
 local prettier = {
-    formatCommand = "prettier ${INPUT} --loglevel error",
+    formatCommand = "prettier --stdin-filepath ${INPUT}",
     formatStdin = true
 }
 
 local eslint = {
-    lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+    lintCommand = "eslint_d -f stylish --stdin --stdin-filename ${INPUT}",
     lintIgnoreExitCode = true,
     lintStdin = true,
     lintFormats = {"%f:%l:%c: %m"},
@@ -25,20 +25,24 @@ require"lspconfig".efm.setup {
             })
     },
 
-    init_options = {documentFormatting = true},
+    init_options = {documentFormatting = true, codeAction = false},
 
     filetypes = {
-        "typescript", "javascript", 'typescriptreact', 'javascriptreact', "lua"
+        "lua", "javascriptreact", "javascript", "typescript", "typescriptreact",
+        "html", "css", "json"
     },
 
     settings = {
         rootMarkers = {"package.json", "tsconfig.json", ".git/"},
         languages = {
             lua = {luaFormat},
-            typescript = {eslint, prettier},
-            javascript = {eslint, prettier},
-            typescriptreact = {eslint, prettier},
-            javascriptreact = {eslint, prettier}
+            typescript = {prettier, eslint},
+            javascript = {prettier, eslint},
+            typescriptreact = {prettier, eslint},
+            javascriptreact = {prettier, eslint},
+            html = {prettier},
+            css = {prettier},
+            json = {prettier}
         }
     }
 }

@@ -46,7 +46,7 @@ M.project_files = function()
 end
 
 M.nvim_config = function()
-    require('telescope.builtin').file_browser {
+    require('telescope.builtin').find_files {
         prompt_title = "\\ Neovim Config /",
         cwd = vim.fn.stdpath('config'),
         shorten_path = false
