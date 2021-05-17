@@ -16,10 +16,15 @@ return require('packer').startup(function()
 
     -- Syntax
     use 'nvim-treesitter/nvim-treesitter'
-    use 'nvim-treesitter/playground'
+    use {'nvim-treesitter/playground', opt = true, cmd = {'TSPlayground'}}
 
     -- Terminal Integration
-    use 'akinsho/nvim-toggleterm.lua'
+    use {
+        'akinsho/nvim-toggleterm.lua',
+        opt = true,
+        cmd = {'ToggleTerm'},
+        config = function() require 'plugins/nvim-toggleterm' end
+    }
 
     -- Snippets
     use 'hrsh7th/vim-vsnip'
@@ -32,7 +37,6 @@ return require('packer').startup(function()
 
     -- Icons
     use 'kyazdani42/nvim-web-devicons'
-    -- use 'yamatsum/nvim-nonicons'
 
     -- Lua Utils
     use 'nvim-lua/popup.nvim'
@@ -48,10 +52,23 @@ return require('packer').startup(function()
     use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
 
     -- File Explorer
-    use 'kyazdani42/nvim-tree.lua'
+    use {
+        'kyazdani42/nvim-tree.lua',
+        opt = true,
+        cmd = {
+            'NvimTreeToggle', 'NvimTreeClipboard', 'NvimTreeClose',
+            'NvimTreeFindFile', 'NvimTreeOpen', 'NvimTreeRefresh'
+        },
+        config = function() require 'plugins/nvim-tree' end
+    }
 
     -- Git
-    use 'lewis6991/gitsigns.nvim'
+    use {
+        'lewis6991/gitsigns.nvim',
+        opt = true,
+        cmd = {'Gitsigns'},
+        config = function() require('gitsigns').setup() end
+    }
 
     -- Comment
     use 'b3nj5m1n/kommentary'
