@@ -16,7 +16,6 @@ return require('packer').startup(function()
 
     -- Syntax
     use 'nvim-treesitter/nvim-treesitter'
-    use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'nvim-treesitter/playground'
 
     -- Terminal Integration
@@ -30,7 +29,6 @@ return require('packer').startup(function()
 
     -- Colorscheme
     use 'marko-cerovac/material.nvim'
-    use 'folke/tokyonight.nvim'
 
     -- Icons
     use 'kyazdani42/nvim-web-devicons'

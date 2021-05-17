@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {
-        "typescript", "javascript", "lua", "css", "html", "go", "graphql"
+        "typescript", "tsx", "javascript", "lua", "css", "html", "go", "graphql"
     },
 
     indent = {enable = true},
