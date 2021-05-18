@@ -43,7 +43,11 @@ return require('packer').startup(function()
     use 'nvim-lua/plenary.nvim'
 
     -- Tabline
-    use 'romgrk/barbar.nvim'
+    -- use 'romgrk/barbar.nvim'
+    use {
+        'akinsho/nvim-bufferline.lua',
+        config = function() require('bufferline').setup {} end
+    }
 
     -- Statusline
     use {'glepnir/galaxyline.nvim', branch = 'main'}

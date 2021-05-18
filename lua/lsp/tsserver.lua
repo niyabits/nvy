@@ -1,19 +1,18 @@
-require'lspconfig'.tsserver.setup {
-    -- Disbale TSServer Formatting
-    on_attach = function(client)
-        if client.config.flags then
-            client.config.flags.allow_incremental_sync = true
-        end
-        client.resolved_capabilities.document_formatting = false
-    end,
+local utils = require('lsp/utils')
+local common_on_attach = utils.common_on_attach
 
-    -- Disable Virtual Text
-    handlers = {
-        ["textDocument/publishDiagnostics"] = vim.lsp.with(
-            vim.lsp.diagnostic.on_publish_diagnostics, {
-                -- Disable virtual_text
-                virtual_text = false
-            })
-    }
-}
+local M = {}
+
+function M.tsserver_on_attach(client, bufnr)
+    common_on_attach(client, bufnr)
+
+    if client.config.flags then
+        client.config.flags.allow_incremental_sync = true
+    end
+
+    -- Disable TSServer Formatting
+    client.resolved_capabilities.document_formatting = false
+end
+
+return M
 

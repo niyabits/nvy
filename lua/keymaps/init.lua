@@ -177,8 +177,8 @@ wk.register({
 -----------------------
 
 -- Close Editor
-nnoremap('<C-w>', ':BufferClose<CR>')
-inoremap('<C-w>', '<Esc>:BufferClose<CR>i')
+nnoremap('<C-w>', ':bd<CR>')
+inoremap('<C-w>', '<Esc>:bd<CR>i')
 
 -- Split Editor
 nnoremap('<C-\\>', ':vsplit<CR>')
@@ -213,8 +213,8 @@ nnoremap('<C-M-k>', ':resize -2<CR>')
 -- File Management --
 ---------------------
 
-nnoremap('<TAB>', ':BufferPrevious<CR>')
-nnoremap('<S-TAB>', ':BufferNext<CR>')
+nnoremap('<TAB>', ':bnext<CR>')
+nnoremap('<S-TAB>', ':bprevious<CR>')
 
 -------------
 -- Display --
