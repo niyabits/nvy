@@ -22,8 +22,8 @@ return require('packer').startup(function(use)
     use 'glepnir/lspsaga.nvim'
     use 'folke/lsp-colors.nvim'
     use 'onsails/lspkind-nvim'
-    -- TODO : Make Trouble opt plugin
-    use 'folke/lsp-trouble.nvim'
+    use 'folke/lsp-trouble.nvim',
+    
     use 'mattn/efm-langserver'
     use {
         'simrat39/symbols-outline.nvim',
