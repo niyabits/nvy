@@ -7,12 +7,12 @@ require'lspconfig'.tsserver.setup {
 }
 
 -- Lua Server
-require'lspconfig'.sumneko_lua.setup(require("lsp.lua-lsp"))
+require'lspconfig'.sumneko_lua.setup(require("lsp.sumneko_lua"))
 
 -- efm general language server
 require'lspconfig'.efm.setup(require("lsp.efm-langserver"))
 
--- CSS  
+-- CSS
 -- npm install -g vscode-css-languageserver-bin
 require'lspconfig'.cssls.setup {on_attach = common_on_attach}
 

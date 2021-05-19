@@ -5,8 +5,6 @@ local library = {}
 
 local path = vim.split(package.path, ";")
 
-local lua_bin = 'lua-language-server'
-
 -- this is the ONLY correct way to setup your path
 if isWindows() then
     table.insert(path, "lua\\?.lua")
@@ -41,7 +39,7 @@ local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-s
 -- LuaFormatter on
 
 return {
-    cmd = {lua_bin, "-E", sumneko_root_path .. "/main.lua"},
+    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     settings = {
         Lua = {
             runtime = {
