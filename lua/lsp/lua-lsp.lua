@@ -18,17 +18,10 @@ end
 
 -- add plugins
 -- if you're not using packer, then you might need to change the paths below
-if isWindows() then
-    library = {
-        [vim.fn.expand('$VIMRUNTIME\\lua')] = true,
-        [vim.fn.expand('$VIMRUNTIME\\lua\\vim\\lsp')] = true
-    }
-else
-    library = {
-        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
-    }
-end
+library = {
+    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
+}
 
 local system_name
 if vim.fn.has("mac") == 1 then
@@ -41,19 +34,10 @@ else
     print("Unsupported system for sumneko")
 end
 
-local sumneko_root_path = "C:\\Users\\yashg\\bin\\lua-language-server"
+local sumneko_root_path = "C:/Users/yashg/bin/lua-language-server"
 
 -- LuaFormatter off
-local sumneko_binary
-if vim.fn.has("win32") == 1 then
-  sumneko_binary = sumneko_root_path.."\\bin\\"..system_name.."\\lua-language-server"
-elseif vim.fn.has("unix") == 1 then
-  sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
-elseif vim.fn.has('macOS') == 1 then
-  sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
-else
-    print("Unsupported system for sumneko")
-end
+local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
 -- LuaFormatter on
 
 return {

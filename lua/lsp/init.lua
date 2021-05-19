@@ -7,8 +7,7 @@ require'lspconfig'.tsserver.setup {
 }
 
 -- Lua Server
--- Doesn't Work on Windows
--- require'lspconfig'.sumneko_lua.setup(require("lsp.lua-lsp"))
+require'lspconfig'.sumneko_lua.setup(require("lsp.lua-lsp"))
 
 -- efm general language server
 require'lspconfig'.efm.setup(require("lsp.efm-langserver"))
