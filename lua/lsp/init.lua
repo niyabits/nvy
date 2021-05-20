@@ -25,6 +25,9 @@ require'lspconfig'.html.setup {on_attach = common_on_attach}
 -- JSON
 require'lspconfig'.jsonls.setup {on_attach = common_on_attach}
 
+-- Prisma
+require'lspconfig'.prisma_ls.setup(require("lsp.prisma"))
+
 -- Autoformat Buffers on Save
 vim.cmd [[autocmd BufWritePre *.ts,*.lua,*.css,*.html,*.ts,*.tsx,*.js,*.jsx,*.json,*.rs,*.html,*.graphql,*.c,*.md lua vim.lsp.buf.formatting_sync(nil, 1000)]]
 
