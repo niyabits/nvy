@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
     -- TODO : Make Trouble opt plugin
     use 'folke/lsp-trouble.nvim'
     use 'mattn/efm-langserver'
+	use 'jose-elias-alvarez/nvim-lsp-ts-utils'
     use {
         'simrat39/symbols-outline.nvim',
         opt = true,
@@ -53,6 +54,10 @@ return require('packer').startup(function(use)
     -- Fuzzy Finder
     -- TODO: Make Telescope an opt plugin
     use 'nvim-telescope/telescope.nvim'
+
+
+	-- Colors
+	use 'norcalli/nvim-colorizer.lua'
 
     -- Colorscheme
     use 'marko-cerovac/material.nvim'
@@ -105,6 +110,9 @@ return require('packer').startup(function(use)
             'DiffviewFocusFiles', 'DiffviewRefresh'
         }
     }
+
+	-- Programming Language Support
+	use 'pantharshit00/vim-prisma'
 
     -- Comment
     use 'b3nj5m1n/kommentary'
