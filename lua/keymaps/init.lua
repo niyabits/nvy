@@ -73,6 +73,9 @@ inoremap('<A-k>', '<Esc>:m .-2<CR>==gi')
 vim.api.nvim_set_keymap("n", "<C-/>", "<Plug>kommentary_line_default", {})
 vim.api.nvim_set_keymap("v", "<C-/>", "<Plug>kommentary_visual_default", {})
 
+vim.api.nvim_set_keymap("n", "<A-/>", "<Plug>kommentary_line_default", {})
+vim.api.nvim_set_keymap("v", "<A-/>", "<Plug>kommentary_visual_default", {})
+
 ----------------
 -- Navigation --
 ----------------
