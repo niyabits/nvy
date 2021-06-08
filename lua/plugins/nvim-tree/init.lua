@@ -1,6 +1,3 @@
--- Don't blank out on NvimTreeToggle
-require"nvim-tree".on_enter()
-
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 vim.g.nvim_tree_bindings = {
@@ -9,7 +6,7 @@ vim.g.nvim_tree_bindings = {
 }
 
 vim.g.nvim_tree_icons = {
-    default = '',
+	default = '',
     symlink = '',
     git = {
         unstaged = "✗",

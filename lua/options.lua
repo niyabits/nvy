@@ -21,4 +21,4 @@ vim.wo.number = true					-- Line Numbers
 vim.wo.cursorline = true				-- Highlight Cursor Location
 
 vim.bo.autoindent = true				-- Copy Indent to Next Line
-vim.bo.smartindent = true				-- Smart Indent for C-like langs
+-- vim.bo.smartindent = true				-- Smart Indent for C-like langs

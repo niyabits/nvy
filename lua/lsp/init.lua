@@ -25,6 +25,22 @@ require'lspconfig'.html.setup {on_attach = common_on_attach}
 -- JSON
 require'lspconfig'.jsonls.setup {on_attach = common_on_attach}
 
+-- GO
+require'lspconfig'.gopls.setup{on_attach = common_on_attach}
+
+-- C Lang
+require'lspconfig'.clangd.setup{on_attach = common_on_attach,
+	cmd = {"clangd", "--background-index"},
+    handlers = {
+        ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+            virtual_text = false,
+            signs = false,
+            underline =true,
+            update_in_insert = true
+        })
+    }
+}
+
 -- Prisma
 require'lsp/prisma'
 require'lspconfig'.prisma_ls.setup {on_attach = common_on_attach}

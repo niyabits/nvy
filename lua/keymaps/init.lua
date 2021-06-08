@@ -80,8 +80,8 @@ vim.api.nvim_set_keymap("v", "<A-/>", "<Plug>kommentary_visual_default", {})
 -- Navigation --
 ----------------
 
-nnoremap('<C-p>', ':Telescope git_files<CR>')
-
+nnoremap('<C-p>', "<cmd>lua require(\'plugins/telescope\').project_files()<CR>")
+            
 ------------------------
 -- Search and Replace --
 ------------------------
@@ -148,8 +148,12 @@ nnoremap('C-<F8>', ':Lspsaga diagnostic_jump_prev<CR>')
 -- Goto Definition
 nnoremap('gD', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
+-- Populate References in a Quick Fix List
+nnoremap('gR', '<cmd>lua vim.lsp.buf.references()<CR>')
+
 -- Goto implementation
 nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+
 
 -- LSP Trouble
 wk.register({

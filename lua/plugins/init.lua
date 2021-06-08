@@ -61,6 +61,7 @@ return require('packer').startup(function(use)
 
     -- Colorscheme
     use 'marko-cerovac/material.nvim'
+	use 'Shatur/neovim-ayu'
 
     -- Icons
     use 'kyazdani42/nvim-web-devicons'
@@ -82,15 +83,7 @@ return require('packer').startup(function(use)
     use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
 
     -- File Explorer
-    use {
-        'kyazdani42/nvim-tree.lua',
-        opt = true,
-        cmd = {
-            'NvimTreeToggle', 'NvimTreeClipboard', 'NvimTreeClose',
-            'NvimTreeFindFile', 'NvimTreeOpen', 'NvimTreeRefresh'
-        },
-        config = function() require 'plugins/nvim-tree' end
-    }
+    use { 'kyazdani42/nvim-tree.lua' }
 
     -- Git
     use {
@@ -125,7 +118,7 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-autopairs'
     use 'p00f/nvim-ts-rainbow'
     use 'JoosepAlviste/nvim-ts-context-commentstring'
-    use {'folke/zen-mode.nvim', opt = true, cmd = {'ZenMode'}}
+	use {"Pocco81/TrueZen.nvim", opt=true, cmd={'TZMinimalist', 'TZFocus', 'TZAtaraxis'}}
 
     -- Keybinds
     use 'folke/which-key.nvim'
