@@ -125,5 +125,8 @@ return require('packer').startup(function(use)
 
     -- Keybinds
     use 'folke/which-key.nvim'
+
+	-- Startscreen
+	use 'glepnir/dashboard-nvim'
 end)
 

@@ -14,6 +14,7 @@ require('plugins/nvim-tree')
 require('plugins/telescope')
 require('plugins/treesitter')
 require('plugins/which-key')
+require('plugins/dashboard')
 
 require('lsp')
 
