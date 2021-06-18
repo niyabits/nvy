@@ -113,6 +113,9 @@ return require('packer').startup(function(use)
     -- QuickFix
     use 'kevinhwang91/nvim-bqf'
 
+	-- Motions
+	use 'ggandor/lightspeed.nvim'
+
     -- Editing Supports
     use 'windwp/nvim-ts-autotag'
     use 'windwp/nvim-autopairs'

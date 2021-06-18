@@ -121,10 +121,10 @@ vnoremap('<leader>ca', ':<C-U>Lspsaga range_code_action<CR>')
 nnoremap('K', ':Lspsaga hover_doc<CR>')
 
 -- scroll down hover doc or scroll in definition preview
-nnoremap('<C-f>',
+nnoremap('<C-j>',
          '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')
 -- scroll up hover doc
-nnoremap('<C-b>',
+nnoremap('<C-k>',
          '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>')
 
 -- Signature Help
