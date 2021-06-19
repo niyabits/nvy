@@ -15,14 +15,6 @@ vim.g.nvim_tree_icons = {
         renamed = "➜",
         untracked = "★",
         deleted = ""
-    },
-    folder = {
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = "",
-        symlink_open = ""
     }
 }
 
