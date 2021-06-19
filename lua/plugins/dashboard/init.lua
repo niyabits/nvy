@@ -1,3 +1,5 @@
+local settings = require("settings")
+
 vim.g.dashboard_custom_header = {
    '   _  ___   ____  __  ',
    '  / |/ / | / /\\ \\/ /',
@@ -14,3 +16,5 @@ vim.g.dashboard_custom_section = {
     d = {description = {'  Find Word          '}, command = 'Telescope live_grep'},
 --  e = {description = {'  Settings           '}, command = ':e '..CONFIG_PATH..'/lv-settings.lua'}
 }
+
+vim.g.dashboard_custom_footer = {settings["footer"]}

@@ -32,12 +32,10 @@ For Windows
 - Explorer
 - Git Plugins
 - Zen Mode
+- Configure with JSON
 
   
 ## Roadmap
-
-- Configure with JSON
-
 - Improve WhichKey Integration
 
   

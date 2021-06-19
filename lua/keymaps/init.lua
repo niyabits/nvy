@@ -190,6 +190,7 @@ inoremap('<C-w>', '<Esc>:bd<CR>i')
 -- Split Editor
 nnoremap('<C-\\>', ':vsplit<CR>')
 nnoremap('<C-S-\\>', ':split<CR>')
+nnoremap('<C-A-\\>', ':split<CR>')
 inoremap('<C-\\>', '<Esc>:vsplit<CR>i')
 inoremap('<C-S-\\>', '<Esc>:split<CR>i')
 

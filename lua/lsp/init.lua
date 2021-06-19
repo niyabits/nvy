@@ -1,3 +1,5 @@
+local settings = require("settings")
+
 local Utils = require('lsp/utils')
 local common_on_attach = Utils.common_on_attach
 
@@ -33,7 +35,7 @@ require'lspconfig'.clangd.setup{on_attach = common_on_attach,
 	cmd = {"clangd", "--background-index"},
     handlers = {
         ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-            virtual_text = false,
+            virtual_text = settings["virtualText"],
             signs = false,
             underline =true,
             update_in_insert = true
