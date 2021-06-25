@@ -80,6 +80,7 @@ gls.left[3] = {
     }
 }
 
+--[[
 gls.left[4] = {
     DiffAdd = {
         provider = 'DiffAdd',
@@ -104,6 +105,7 @@ gls.left[6] = {
         highlight = {colors.red, colors.bg}
     }
 }
+ ]]
 
 gls.right[1] = {
     DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}

@@ -3,7 +3,9 @@ require('plugins')
 require('keymaps')
 require('theming')
 
+require('plugins/dashboard')
 require('plugins/galaxyline')
+require('plugins/gitsigns')
 require('plugins/indentline')
 require('plugins/lspkind')
 require('plugins/lspsaga')
@@ -14,7 +16,6 @@ require('plugins/nvim-tree')
 require('plugins/telescope')
 require('plugins/treesitter')
 require('plugins/which-key')
-require('plugins/dashboard')
 
 require('lsp')
 

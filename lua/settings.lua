@@ -9,6 +9,6 @@ local jsonString = file:read "*a"
 file:close()
 
 settingsTable = vim.fn.json_decode(jsonString)
-print(settingsTable["footer"])
+-- print(settingsTable["footer"])
 
 return settingsTable

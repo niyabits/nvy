@@ -47,6 +47,30 @@ require'lspconfig'.clangd.setup{on_attach = common_on_attach,
 require'lsp/prisma'
 require'lspconfig'.prisma_ls.setup {on_attach = common_on_attach}
 
+-- Emmet
+-- require'lsp/emmet'
+-- require'lspconfig'.emmet_ls.setup {on_attach = common_on_attach}
+
+local configs = require'lspconfig/configs'    
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+if not require'lspconfig'.emmet_ls then    
+  configs.emmet_ls = {    
+    default_config = {    
+      cmd = {'emmet-ls', '--stdio'};
+      filetypes = {'html', 'css'};
+      root_dir = function(fname)    
+        return vim.loop.cwd()
+      end;    
+      settings = {};    
+    };    
+  }    
+end    
+
+require'lspconfig'.emmet_ls.setup{ capabilities = capabilities; }
+
 -- Autoformat Buffers on Save
 vim.cmd [[autocmd BufWritePre *.ts,*.lua,*.css,*.html,*.ts,*.tsx,*.js,*.jsx,*.json,*.rs,*.html,*.graphql,*.c,*.md lua vim.lsp.buf.formatting_sync(nil, 1000)]]
 

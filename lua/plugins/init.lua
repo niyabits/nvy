@@ -86,12 +86,12 @@ return require('packer').startup(function(use)
     use { 'kyazdani42/nvim-tree.lua' }
 
     -- Git
-    use {
-        'lewis6991/gitsigns.nvim',
-        opt = true,
-        cmd = {'Gitsigns'},
-        config = function() require('gitsigns').setup() end
-    }
+	use {
+	  'lewis6991/gitsigns.nvim',
+	  requires = {
+		'nvim-lua/plenary.nvim'
+	  }
+	}
 
     use {'TimUntersberger/neogit', opt = true, cmd = {'Neogit'}}
 
@@ -106,6 +106,7 @@ return require('packer').startup(function(use)
 
 	-- Programming Language Support
 	use 'pantharshit00/vim-prisma'
+	use 'aca/emmet-ls'
 
     -- Comment
     use 'b3nj5m1n/kommentary'
