@@ -61,7 +61,6 @@ return require('packer').startup(function(use)
 
     -- Colorscheme
     use 'marko-cerovac/material.nvim'
-	use 'Shatur/neovim-ayu'
 
     -- Icons
     use 'kyazdani42/nvim-web-devicons'

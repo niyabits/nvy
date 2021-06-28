@@ -5,7 +5,14 @@ local common_on_attach = Utils.common_on_attach
 
 -- TSServer
 require'lspconfig'.tsserver.setup {
-    on_attach = require('lsp/tsserver').tsserver_on_attach
+    on_attach = require('lsp/tsserver').tsserver_on_attach,
+	handlers = {
+		  ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+			  virtual_text = settings["virtualText"],
+			  underline = true,
+
+		})
+	}
 }
 
 -- Lua Server

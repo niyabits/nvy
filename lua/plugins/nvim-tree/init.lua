@@ -14,10 +14,11 @@ vim.g.nvim_tree_icons = {
         unmerged = "",
         renamed = "➜",
         untracked = "★",
-        deleted = ""
+        deleted = "",
+		ignored = ""
     }
 }
 
 vim.g.nvim_tree_lsp_diagnostics = 1
 vim.g.nvim_tree_follow = 1
-vim.g.nvim_tree_gitignore = 1
+vim.g.nvim_tree_gitignore = 0

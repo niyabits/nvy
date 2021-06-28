@@ -144,6 +144,7 @@ vim.cmd(
 -- Jump Diagnostic
 nnoremap('<F8>', ':Lspsaga diagnostic_jump_next<CR>')
 nnoremap('C-<F8>', ':Lspsaga diagnostic_jump_prev<CR>')
+nnoremap('A-<F8>', ':Lspsaga diagnostic_jump_prev<CR>')
 
 -- Goto Definition
 nnoremap('gD', '<cmd>lua vim.lsp.buf.definition()<CR>')
