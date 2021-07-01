@@ -4,7 +4,6 @@ local trouble = require("trouble.providers.telescope")
 
 require('telescope').setup {
     defaults = {
-        preview_cutoff = 70,
         mappings = {
             i = {
                 ["<C-j>"] = actions.move_selection_next,
@@ -22,6 +21,10 @@ require('telescope').setup {
         }
     },
 
+	layout_config = {
+        preview_cutoff = 70,
+	},
+
     extensions = {
         media_files = {
             filetypes = {"png", "webp", "jpg", "jpeg"},
@@ -34,7 +37,8 @@ local M = {}
 
 M.project_files = function()
     local _, ret, stderr = utils.get_os_command_output(
-                               {'git', 'rev-parse', '--is-inside-work-tree'})
+	   {'git', 'rev-parse', '--is-inside-work-tree'}
+	  )
     local gopts = {}
     gopts.prompt_title = 'Git Files'
     gopts.prompt_prefix = '  '

@@ -143,8 +143,7 @@ vim.cmd(
 
 -- Jump Diagnostic
 nnoremap('<F8>', ':Lspsaga diagnostic_jump_next<CR>')
-nnoremap('C-<F8>', ':Lspsaga diagnostic_jump_prev<CR>')
-nnoremap('A-<F8>', ':Lspsaga diagnostic_jump_prev<CR>')
+nnoremap('<C-F8>', ':Lspsaga diagnostic_jump_prev<CR>')
 
 -- Goto Definition
 nnoremap('gD', '<cmd>lua vim.lsp.buf.definition()<CR>')
@@ -197,8 +196,8 @@ inoremap('<C-S-\\>', '<Esc>:split<CR>i')
 
 -- Navigate Between Windows
 nnoremap('<C-h>', ':wincmd h<CR>')
-nnoremap('<C-j>', ':wincmd j<CR>')
-nnoremap('<C-k>', ':wincmd k<CR>')
+nnoremap('<C-M-j>', ':wincmd j<CR>')
+nnoremap('<C-M-k>', ':wincmd k<CR>')
 nnoremap('<C-l>', ':wincmd l<CR>')
 
 inoremap('<C-h>', '<Esc>:wincmd h<CR>i')
