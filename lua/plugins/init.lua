@@ -92,7 +92,11 @@ return require('packer').startup(function(use)
 	  }
 	}
 
-    use {'TimUntersberger/neogit', opt = true, cmd = {'Neogit'}}
+    use {
+	  'TimUntersberger/neogit', 
+	  opt = true, cmd = {'Neogit'}, 
+	  config = function() require('neogit').setup {integrations = {diffview=true}} end
+  	}
 
     use {
         'sindrets/diffview.nvim',
