@@ -8,7 +8,6 @@ require('plugins/galaxyline')
 require('plugins/gitsigns')
 require('plugins/indentline')
 require('plugins/lspkind')
-require('plugins/lspsaga')
 require('plugins/lsp-trouble')
 require('plugins/nvim-autopairs')
 require('plugins/nvim-compe')
@@ -18,4 +17,3 @@ require('plugins/which-key')
 require('plugins/telescope')
 
 require('lsp')
-

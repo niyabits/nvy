@@ -95,61 +95,43 @@ nnoremap('<C-p>', "<cmd>lua require(\'plugins/telescope\').project_files()<CR>")
 ---------------------------
 
 -- Async LSP Finder
-nnoremap('gh', ':Lspsaga lsp_finder<CR>')
+-- nnoremap('gh', ':Lspsaga lsp_finder<CR>')
 
 -- Code Action
 wk.register({
     c = {
         name = "code", -- optional group name
-        a = {":Lspsaga code_action<CR>", "Code Action", noremap = true}
+        a = {":lua vim.lsp.buf.code_action()<CR>", "Code Action", noremap = true}
     }
 }, {prefix = "<leader>"})
 
-wk.register({
-    c = {
-        name = "code",
-        a = {":Lspsaga range_code_action<CR>", "Range Code Action"}
-    }
-}, {mode = "v", prefix = "<leader>"})
-
---[[
-nnoremap('<leader>ca', ':Lspsaga code_action<CR>')
-vnoremap('<leader>ca', ':<C-U>Lspsaga range_code_action<CR>') 
-]]
-
 -- Hover Doc
-nnoremap('K', ':Lspsaga hover_doc<CR>')
-
--- scroll down hover doc or scroll in definition preview
-nnoremap('<C-j>',
-         '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')
--- scroll up hover doc
-nnoremap('<C-k>',
-         '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>')
+nnoremap('K', ':lua vim.lsp.buf.hover()<CR>')
 
 -- Signature Help
-nnoremap('gs', ':Lspsaga signature_help<CR>')
-
--- Rename
-nnoremap('gr', ':Lspsaga rename<CR>')
-
--- Preview Definition
-nnoremap('gd', ':Lspsaga preview_definition<CR>')
-
--- Show Diagnostic
-nnoremap('ge', ':Lspsaga show_cursor_diagnostics<CR>')
-vim.cmd(
-    'autocmd CursorHold * lua require\'lspsaga.diagnostic\'.show_cursor_diagnostics()')
-
--- Jump Diagnostic
-nnoremap('<F8>', ':Lspsaga diagnostic_jump_next<CR>')
-nnoremap('<C-F8>', ':Lspsaga diagnostic_jump_prev<CR>')
-
--- Goto Definition
-nnoremap('gD', '<cmd>lua vim.lsp.buf.definition()<CR>')
+nnoremap('gs', ':lua vim.lsp.buf.signature_help()<CR>')
 
 -- Populate References in a Quick Fix List
-nnoremap('gR', '<cmd>lua vim.lsp.buf.references()<CR>')
+nnoremap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+
+-- Preview Definition
+nnoremap('gd', ':lua vim.lsp.buf.definition()<CR>')
+
+-- Show Diagnostic
+-- TODO - Write a function for Cursor Diagnostics than Line Diagnostics
+nnoremap('ge', ':lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+vim.cmd(
+    'autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()')
+
+-- Jump Diagnostic
+nnoremap('<F8>', ':lua vim.lsp.diagnostic.goto_next()<CR>')
+nnoremap('<C-F8>', ':lua vim.lsp.diagnostic.goto_prev()<CR>')
+
+-- Goto Definition
+nnoremap('gD', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+
+-- Rename
+nnoremap('gR', ':lua vim.lsp.buf.rename()<CR>')
 
 -- Goto implementation
 nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
@@ -196,8 +178,8 @@ inoremap('<C-S-\\>', '<Esc>:split<CR>i')
 
 -- Navigate Between Windows
 nnoremap('<C-h>', ':wincmd h<CR>')
-nnoremap('<C-M-j>', ':wincmd j<CR>')
-nnoremap('<C-M-k>', ':wincmd k<CR>')
+nnoremap('<S-Up>', ':wincmd j<CR>')
+nnoremap('<S-Down>', ':wincmd k<CR>')
 nnoremap('<C-l>', ':wincmd l<CR>')
 
 inoremap('<C-h>', '<Esc>:wincmd h<CR>i')

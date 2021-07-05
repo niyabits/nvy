@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
 
     -- LSP
     use 'neovim/nvim-lspconfig'
-    use 'glepnir/lspsaga.nvim'
     use 'folke/lsp-colors.nvim'
     use 'onsails/lspkind-nvim'
     -- TODO : Make Trouble opt plugin
@@ -68,6 +67,7 @@ return require('packer').startup(function(use)
     -- Lua Utils
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
+	use 'jose-elias-alvarez/null-ls.nvim'
 
     -- Tabline
     use {
@@ -79,7 +79,7 @@ return require('packer').startup(function(use)
     use {'glepnir/galaxyline.nvim', branch = 'main'}
 
     -- Indent
-    use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
+    use {'lukas-reineke/indent-blankline.nvim'}
 
     -- File Explorer
     use { 'kyazdani42/nvim-tree.lua' }

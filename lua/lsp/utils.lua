@@ -44,4 +44,6 @@ end
 
 function M.common_on_attach(client, bufnr) documentHighlight(client, bufnr) end
 
+
 return M
+

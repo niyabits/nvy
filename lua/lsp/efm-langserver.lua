@@ -28,21 +28,20 @@ return {
     init_options = {documentFormatting = true, codeAction = false},
 
     filetypes = {
-        "lua", "javascriptreact", "javascript", "typescript", "typescriptreact",
-        "html", "css", "json"
+        "lua", "html", "css", "json"
     },
 
     settings = {
         rootMarkers = {"package.json", "tsconfig.json", ".git/"},
         languages = {
             lua = {luaFormat},
-            typescript = {prettier, eslint},
-            javascript = {prettier, eslint},
-            typescriptreact = {prettier, eslint},
-            javascriptreact = {prettier, eslint},
             html = {prettier},
             css = {prettier},
             json = {prettier}
+--          typescript = {prettier, eslint},
+--          javascript = {prettier, eslint},
+--          typescriptreact = {prettier, eslint},
+--          javascriptreact = {prettier, eslint},
         }
     }
 }
