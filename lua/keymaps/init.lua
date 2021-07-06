@@ -81,7 +81,7 @@ vim.api.nvim_set_keymap("v", "<A-/>", "<Plug>kommentary_visual_default", {})
 ----------------
 
 nnoremap('<C-p>', "<cmd>lua require(\'plugins/telescope\').project_files()<CR>")
-            
+
 ------------------------
 -- Search and Replace --
 ------------------------
@@ -101,7 +101,11 @@ nnoremap('<C-p>', "<cmd>lua require(\'plugins/telescope\').project_files()<CR>")
 wk.register({
     c = {
         name = "code", -- optional group name
-        a = {":lua vim.lsp.buf.code_action()<CR>", "Code Action", noremap = true}
+        a = {
+            ":lua vim.lsp.buf.code_action()<CR>",
+            "Code Action",
+            noremap = true
+        }
     }
 }, {prefix = "<leader>"})
 
@@ -121,7 +125,7 @@ nnoremap('gd', ':lua vim.lsp.buf.definition()<CR>')
 -- TODO - Write a function for Cursor Diagnostics than Line Diagnostics
 nnoremap('ge', ':lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
 vim.cmd(
-    'autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()')
+    'autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({ border = "single" })')
 
 -- Jump Diagnostic
 nnoremap('<F8>', ':lua vim.lsp.diagnostic.goto_next()<CR>')
@@ -135,7 +139,6 @@ nnoremap('gR', ':lua vim.lsp.buf.rename()<CR>')
 
 -- Goto implementation
 nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-
 
 -- LSP Trouble
 wk.register({
@@ -178,8 +181,8 @@ inoremap('<C-S-\\>', '<Esc>:split<CR>i')
 
 -- Navigate Between Windows
 nnoremap('<C-h>', ':wincmd h<CR>')
-nnoremap('<S-Up>', ':wincmd j<CR>')
-nnoremap('<S-Down>', ':wincmd k<CR>')
+nnoremap('<C-j>', ':wincmd j<CR>')
+nnoremap('<C-k>', ':wincmd k<CR>')
 nnoremap('<C-l>', ':wincmd l<CR>')
 
 inoremap('<C-h>', '<Esc>:wincmd h<CR>i')

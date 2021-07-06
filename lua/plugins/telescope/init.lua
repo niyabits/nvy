@@ -21,9 +21,7 @@ require('telescope').setup {
         }
     },
 
-	layout_config = {
-        preview_cutoff = 70,
-	},
+    layout_config = {preview_cutoff = 70},
 
     extensions = {
         media_files = {
@@ -36,9 +34,9 @@ require('telescope').setup {
 local M = {}
 
 M.project_files = function()
-    local _, ret, stderr = utils.get_os_command_output(
-	   {'git', 'rev-parse', '--is-inside-work-tree'}
-	  )
+    local _, ret, stderr = utils.get_os_command_output({
+        'git', 'rev-parse', '--is-inside-work-tree'
+    })
     local gopts = {}
     gopts.prompt_title = 'Git Files'
     gopts.prompt_prefix = '  '

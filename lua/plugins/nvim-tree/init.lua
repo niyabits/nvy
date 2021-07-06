@@ -1,12 +1,12 @@
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 vim.g.nvim_tree_bindings = {
-	{ key = {"l", "<CR>", "<2-LeftMouse>"}, cb = tree_cb("edit") },
-	{ key = "h", cb = tree_cb("close_node") }
+    {key = {"l", "<CR>", "<2-LeftMouse>"}, cb = tree_cb("edit")},
+    {key = "h", cb = tree_cb("close_node")}
 }
 
 vim.g.nvim_tree_icons = {
-	default = '',
+    default = '',
     symlink = '',
     git = {
         unstaged = "",
@@ -15,7 +15,7 @@ vim.g.nvim_tree_icons = {
         renamed = "➜",
         untracked = "★",
         deleted = "",
-		ignored = ""
+        ignored = ""
     }
 }
 

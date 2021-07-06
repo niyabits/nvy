@@ -7,9 +7,7 @@ vim.g.material_italic_keywords = true
 vim.g.material_borders = true
 vim.g.material_contrast = true
 vim.g.material_hide_eob = true
-vim.g.material_custom_colors = { contrast = "#0f111a" }
+vim.g.material_custom_colors = {contrast = "#0f111a", float = "#0f111a"}
 
 require('material').set()
 
--- Switch To Lighter Theme with :Lighter
-vim.cmd(":command LightTheme lua require('material.functions').change_style('lighter')<CR>")

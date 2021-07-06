@@ -24,12 +24,15 @@ return require('packer').startup(function(use)
     -- TODO : Make Trouble opt plugin
     use 'folke/lsp-trouble.nvim'
     use 'mattn/efm-langserver'
-	use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+    use 'jose-elias-alvarez/nvim-lsp-ts-utils'
     use {
         'simrat39/symbols-outline.nvim',
         opt = true,
         cmd = {'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose'}
     }
+
+    -- LSP Installers
+    use 'anott03/nvim-lspinstall'
 
     -- Completion
     use 'hrsh7th/nvim-compe'
@@ -54,12 +57,14 @@ return require('packer').startup(function(use)
     -- TODO: Make Telescope an opt plugin
     use 'nvim-telescope/telescope.nvim'
 
-
-	-- Colors
-	use 'norcalli/nvim-colorizer.lua'
+    -- Colors
+    use 'norcalli/nvim-colorizer.lua'
 
     -- Colorscheme
     use 'marko-cerovac/material.nvim'
+
+    -- Utility
+    use 'famiu/nvim-reload'
 
     -- Icons
     use 'kyazdani42/nvim-web-devicons'
@@ -67,7 +72,7 @@ return require('packer').startup(function(use)
     -- Lua Utils
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
-	use 'jose-elias-alvarez/null-ls.nvim'
+    use 'jose-elias-alvarez/null-ls.nvim'
 
     -- Tabline
     use {
@@ -82,21 +87,19 @@ return require('packer').startup(function(use)
     use {'lukas-reineke/indent-blankline.nvim'}
 
     -- File Explorer
-    use { 'kyazdani42/nvim-tree.lua' }
+    use {'kyazdani42/nvim-tree.lua'}
 
     -- Git
-	use {
-	  'lewis6991/gitsigns.nvim',
-	  requires = {
-		'nvim-lua/plenary.nvim'
-	  }
-	}
+    use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
     use {
-	  'TimUntersberger/neogit', 
-	  opt = true, cmd = {'Neogit'}, 
-	  config = function() require('neogit').setup {integrations = {diffview=true}} end
-  	}
+        'TimUntersberger/neogit',
+        opt = true,
+        cmd = {'Neogit'},
+        config = function()
+            require('neogit').setup {integrations = {diffview = true}}
+        end
+    }
 
     use {
         'sindrets/diffview.nvim',
@@ -107,9 +110,9 @@ return require('packer').startup(function(use)
         }
     }
 
-	-- Programming Language Support
-	use 'pantharshit00/vim-prisma'
-	use 'aca/emmet-ls'
+    -- Programming Language Support
+    use 'pantharshit00/vim-prisma'
+    use 'aca/emmet-ls'
 
     -- Comment
     use 'b3nj5m1n/kommentary'
@@ -117,20 +120,24 @@ return require('packer').startup(function(use)
     -- QuickFix
     use 'kevinhwang91/nvim-bqf'
 
-	-- Motions
-	use 'ggandor/lightspeed.nvim'
+    -- Motions
+    use 'ggandor/lightspeed.nvim'
 
     -- Editing Supports
     use 'windwp/nvim-ts-autotag'
     use 'windwp/nvim-autopairs'
     use 'p00f/nvim-ts-rainbow'
     use 'JoosepAlviste/nvim-ts-context-commentstring'
-	use {"Pocco81/TrueZen.nvim", opt=true, cmd={'TZMinimalist', 'TZFocus', 'TZAtaraxis'}}
+    use {
+        "Pocco81/TrueZen.nvim",
+        opt = true,
+        cmd = {'TZMinimalist', 'TZFocus', 'TZAtaraxis'}
+    }
 
     -- Keybinds
     use 'folke/which-key.nvim'
 
-	-- Startscreen
-	use 'glepnir/dashboard-nvim'
+    -- Startscreen
+    use 'glepnir/dashboard-nvim'
 end)
 

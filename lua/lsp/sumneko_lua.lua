@@ -1,18 +1,9 @@
-local utils = require('lsp/utils')
-local isWindows = utils.isWindows
-
 local library = {}
 
 local path = vim.split(package.path, ";")
 
--- this is the ONLY correct way to setup your path
-if isWindows() then
-    table.insert(path, "lua\\?.lua")
-    table.insert(path, "lua\\?\\init.lua")
-else
-    table.insert(path, "lua/?.lua")
-    table.insert(path, "lua/?/init.lua")
-end
+table.insert(path, "lua/?.lua")
+table.insert(path, "lua/?/init.lua")
 
 -- add plugins
 -- if you're not using packer, then you might need to change the paths below
@@ -32,7 +23,8 @@ else
     print("Unsupported system for sumneko")
 end
 
-local sumneko_root_path = "C:/Users/yashg/bin/lua-language-server"
+local sumneko_root_path = vim.fn.stdpath("config") .. "/bin/lua-sumneko/" ..
+                              system_name .. "/lua-language-server"
 
 -- LuaFormatter off
 local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"

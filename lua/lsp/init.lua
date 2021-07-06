@@ -3,6 +3,10 @@ local settings = require("settings")
 local Utils = require('lsp/utils')
 local common_on_attach = Utils.common_on_attach
 
+-- Global Handlers
+vim.lsp.handlers["textDocument/hover"] =
+    vim.lsp.with(vim.lsp.handlers.hover, {border = "single"})
+
 -- TSServer
 require('lsp/tsserver')
 
@@ -26,48 +30,49 @@ require'lspconfig'.html.setup {on_attach = common_on_attach}
 require'lspconfig'.jsonls.setup {on_attach = common_on_attach}
 
 -- GO
-require'lspconfig'.gopls.setup{on_attach = common_on_attach}
+require'lspconfig'.gopls.setup {on_attach = common_on_attach}
 
 -- C Lang
-require'lspconfig'.clangd.setup{on_attach = common_on_attach,
-	cmd = {"clangd", "--background-index"},
+require'lspconfig'.clangd.setup {
+    on_attach = common_on_attach,
+    cmd = {"clangd", "--background-index"},
     handlers = {
-        ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic
+                                                               .on_publish_diagnostics,
+                                                           {
             virtual_text = settings["virtualText"],
             signs = false,
-            underline =true,
+            underline = true,
             update_in_insert = true
         })
     }
 }
 
 -- Prisma
-require'lsp/prisma'
+require 'lsp/prisma'
 require'lspconfig'.prisma_ls.setup {on_attach = common_on_attach}
 
 -- Emmet
 -- require'lsp/emmet'
 -- require'lspconfig'.emmet_ls.setup {on_attach = common_on_attach}
 
-local configs = require'lspconfig/configs'    
+local configs = require 'lspconfig/configs'
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-if not require'lspconfig'.emmet_ls then    
-  configs.emmet_ls = {    
-    default_config = {    
-      cmd = {'emmet-ls', '--stdio'};
-      filetypes = {'html', 'css'};
-      root_dir = function(fname)    
-        return vim.loop.cwd()
-      end;    
-      settings = {};    
-    };    
-  }    
-end    
+if not require'lspconfig'.emmet_ls then
+    configs.emmet_ls = {
+        default_config = {
+            cmd = {'emmet-ls', '--stdio'},
+            filetypes = {'html', 'css'},
+            root_dir = function(fname) return vim.loop.cwd() end,
+            settings = {}
+        }
+    }
+end
 
-require'lspconfig'.emmet_ls.setup{ capabilities = capabilities; }
+require'lspconfig'.emmet_ls.setup {capabilities = capabilities}
 
 -- Autoformat Buffers on Save
 vim.cmd [[autocmd BufWritePre *.ts,*.lua,*.css,*.html,*.ts,*.tsx,*.js,*.jsx,*.json,*.rs,*.html,*.graphql,*.c,*.md lua vim.lsp.buf.formatting_sync(nil, 1000)]]
