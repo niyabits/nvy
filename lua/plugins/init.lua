@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
 
     -- Syntax
     use 'nvim-treesitter/nvim-treesitter'
-    use {'nvim-treesitter/playground', opt = true, cmd = {'TSPlayground'}}
+    use 'nvim-treesitter/playground'
 
     -- Terminal Integration
     use {
@@ -62,6 +62,7 @@ return require('packer').startup(function(use)
 
     -- Colorscheme
     use 'marko-cerovac/material.nvim'
+    use 'yashguptaz/calvera-dark.nvim'
 
     -- Utility
     use 'famiu/nvim-reload'

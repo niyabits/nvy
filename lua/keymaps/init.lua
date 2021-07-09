@@ -34,7 +34,7 @@ nnoremap('<leader><CR>', ':luafile %<CR>')
 nnoremap(';', ':')
 vnoremap(';', ':')
 
--- Telescope 
+-- Telescope
 
 wk.register({
     t = {
@@ -124,8 +124,8 @@ nnoremap('gd', ':lua vim.lsp.buf.definition()<CR>')
 -- Show Diagnostic
 -- TODO - Write a function for Cursor Diagnostics than Line Diagnostics
 nnoremap('ge', ':lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-vim.cmd(
-    'autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({ border = "single" })')
+--[[ vim.cmd(
+    'autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({ border = "single" })') ]]
 
 -- Jump Diagnostic
 nnoremap('<F8>', ':lua vim.lsp.diagnostic.goto_next()<CR>')

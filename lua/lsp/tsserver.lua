@@ -4,7 +4,7 @@ local common_on_attach = utils.common_on_attach
 
 require'lspconfig'.tsserver.setup {
     on_attach = function(client)
-        common_on_attach(client, bufnr)
+        common_on_attach(client)
 
         if client.config.flags then
             client.config.flags.allow_incremental_sync = true
@@ -34,7 +34,7 @@ require'lspconfig'.tsserver.setup {
 
             -- formatting
             enable_formatting = true,
-            formatter = "prettierd",
+            formatter = "prettier",
             formatter_config_fallback = nil,
 
             -- parentheses completion

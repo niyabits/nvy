@@ -13,9 +13,17 @@ vim.g.nvim_tree_icons = {
         staged = "✓",
         unmerged = "",
         renamed = "➜",
-        untracked = "★",
-        deleted = "",
+        untracked = "",
+        deleted = "",
         ignored = ""
+    },
+    folder = {
+        default = "",
+        open = "",
+        empty = "",
+        empty_open = "",
+        symlink = "",
+        symlink_open = ""
     }
 }
 
