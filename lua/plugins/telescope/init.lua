@@ -2,6 +2,7 @@ local actions = require('telescope.actions')
 local utils = require('telescope.utils')
 local trouble = require("trouble.providers.telescope")
 
+require('telescope').load_extension('media_files')
 require('telescope').setup {
     defaults = {
         mappings = {
@@ -50,8 +51,8 @@ end
 M.nvim_config = function()
     require('telescope.builtin').find_files {
         prompt_title = "\\ Neovim Config /",
-        cwd = vim.fn.stdpath('config'),
-        shorten_path = false
+        cwd = vim.fn.stdpath('config')
+        -- shorten_path = false
     }
 end
 

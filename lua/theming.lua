@@ -9,7 +9,7 @@ vim.g.material_italic_keywords = false
 vim.g.material_borders = true
 vim.g.material_contrast = true
 vim.g.material_hide_eob = true
-vim.g.material_custom_colors = {contrast = "#0f111a"} 
+vim.g.material_custom_colors = {contrast = "#0f111a"}
 require('material').set()
 ]]
 

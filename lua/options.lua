@@ -6,6 +6,8 @@ vim.cmd('set noswapfile') -- No Swap File after closing Buffer
 vim.cmd('set smartcase') -- Case Insensitive Search for all Small Chars
 vim.cmd('set tabstop=4 softtabstop=4')
 vim.cmd('set shiftwidth=2')
+vim.cmd('set nocp') -- 'compatible' is not set
+vim.cmd("filetype plugin on") -- " plugins are enabled
 
 vim.o.hidden = true -- Allow Unsaved Tabs
 vim.o.mouse = "a" -- Mouse Support

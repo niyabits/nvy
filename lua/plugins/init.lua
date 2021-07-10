@@ -56,6 +56,7 @@ return require('packer').startup(function(use)
     -- Fuzzy Finder
     -- TODO: Make Telescope an opt plugin
     use 'nvim-telescope/telescope.nvim'
+    use 'nvim-telescope/telescope-media-files.nvim'
 
     -- Colors
     use 'norcalli/nvim-colorizer.lua'
@@ -66,7 +67,7 @@ return require('packer').startup(function(use)
 
     -- Utility
     use 'famiu/nvim-reload'
-
+    use 'stsewd/gx-extended.vim'
     -- Icons
     use 'kyazdani42/nvim-web-devicons'
 
@@ -123,6 +124,9 @@ return require('packer').startup(function(use)
 
     -- Motions
     use 'ggandor/lightspeed.nvim'
+
+    -- Project
+    use 'windwp/nvim-spectre'
 
     -- Editing Supports
     use 'windwp/nvim-ts-autotag'
