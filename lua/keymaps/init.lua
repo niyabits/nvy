@@ -115,8 +115,8 @@ nnoremap('K', ':lua vim.lsp.buf.hover()<CR>')
 -- Signature Help
 nnoremap('gs', ':lua vim.lsp.buf.signature_help()<CR>')
 
--- Populate References in a Quick Fix List
-nnoremap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+-- Populate References Trouble
+nnoremap('gr', '<cmd>TroubleToggle lsp_references<CR>')
 
 -- Preview Definition
 nnoremap('gd', ':lua vim.lsp.buf.definition()<CR>')
