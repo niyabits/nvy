@@ -1,7 +1,15 @@
 local nvim_lsp = require("lspconfig")
+local utils = require("lsp/utils")
+local common_on_attach = utils.common_on_attach
 
 nvim_lsp.tsserver.setup({
 	on_attach = function(client, bufnr)
+		common_on_attach(client)
+
+		if client.config.flags then
+			client.config.flags.allow_incremental_sync = true
+		end
+
 		-- disable tsserver formatting if you plan on formatting via null-ls
 		client.resolved_capabilities.document_formatting = false
 
