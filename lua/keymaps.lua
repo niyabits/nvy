@@ -50,3 +50,10 @@ inoremap("?", "?<c-g>u")
 tnoremap("<Esc>", "<C-\\><C-n>")
 tnoremap("<A-`>", "<C-\\><C-n> :ToggleTerm<CR>")
 nnoremap("<A-`>", ":ToggleTerm<CR>")
+
+-- Toggle Comment: kommentary
+vim.api.nvim_set_keymap("n", "<C-/>", "<Plug>kommentary_line_default", {})
+vim.api.nvim_set_keymap("v", "<C-/>", "<Plug>kommentary_visual_default", {})
+
+vim.api.nvim_set_keymap("n", "<A-/>", "<Plug>kommentary_line_default", {})
+vim.api.nvim_set_keymap("v", "<A-/>", "<Plug>kommentary_visual_default", {})
