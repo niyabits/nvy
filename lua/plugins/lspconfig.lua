@@ -14,7 +14,7 @@ for type, icon in pairs(signs) do
 end
 
 -- Enable the following language servers
-local servers = { "clangd", "rust_analyzer", "pyright" }
+local servers = { "clangd", "rust_analyzer", "pyright", "cssls" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = common_on_attach,

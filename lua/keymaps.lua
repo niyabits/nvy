@@ -1,6 +1,7 @@
 -- local wk = require("which-key")
 local Utils = require("utils")
 
+local exprnnoremap = Utils.exprnnoremap
 local nnoremap = Utils.nnoremap
 local vnoremap = Utils.vnoremap
 local xnoremap = Utils.xnoremap
@@ -17,6 +18,9 @@ nnoremap("<leader>e", [[<cmd>NvimTreeToggle<CR>]])
 -- Switch Tabs
 nnoremap("<TAB>", ":BufferLineCycleNext<CR>")
 nnoremap("<S-TAB>", ":BufferLineCyclePrev<CR>")
+
+-- Delete Buffer
+nnoremap("<C-w>", ":bd<CR>")
 
 -- Better Visual Mode Indent
 vnoremap("<", "<gv")
@@ -43,8 +47,12 @@ nnoremap("J", "mzJ`z")
 -- Add Undobreak Points
 inoremap(",", ",<c-g>u")
 inoremap(".", ".<c-g>u")
-inoremap("!", "~<c-g>u")
+inoremap("!", "!<c-g>u")
 inoremap("?", "?<c-g>u")
+
+-- Deal with word wraps
+exprnnoremap("k", "v:count == 0 ? 'gk' : 'k'")
+exprnnoremap("j", "v:count == 0 ? 'gj' : 'j'")
 
 -- Terminal
 tnoremap("<Esc>", "<C-\\><C-n>")

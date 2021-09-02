@@ -51,6 +51,8 @@ return require("packer").startup(function(use)
 
 	use({ "nvim-treesitter/playground" })
 
+	use({ "nvim-treesitter/nvim-treesitter-refactor" })
+
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
@@ -138,4 +140,6 @@ return require("packer").startup(function(use)
 	})
 
 	use({ "akinsho/nvim-toggleterm.lua" })
+
+	use({ "iamcco/markdown-preview.nvim" })
 end)

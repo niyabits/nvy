@@ -21,4 +21,7 @@ require("nvim-treesitter.configs").setup({
 	autotag = {
 		enable = true,
 	},
+	refactor = {
+		highlight_definitions = { enable = true },
+	},
 })
