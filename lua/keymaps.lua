@@ -20,7 +20,7 @@ nnoremap("<TAB>", ":BufferLineCycleNext<CR>")
 nnoremap("<S-TAB>", ":BufferLineCyclePrev<CR>")
 
 -- Delete Buffer
-nnoremap("<C-w>", ":bd<CR>")
+nnoremap("<A-w>", ":bd<CR>")
 
 -- Better Visual Mode Indent
 vnoremap("<", "<gv")
@@ -40,7 +40,7 @@ inoremap("<A-k>", "<Esc>:m .-2<CR>==gi")
 nnoremap("Y", "y$")
 
 -- Center Next, Prev and Line Concatenate
-nnoremap("n", "nzzzv")
+-- nnoremap("n", "nzzzv")
 nnoremap("N", "Nzzzv")
 nnoremap("J", "mzJ`z")
 

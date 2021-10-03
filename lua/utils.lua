@@ -31,3 +31,4 @@ function M.exprinoremap(lhs, rhs) M.exprnoremap('i', lhs, rhs) end
 function M.exprnnoremap(lhs, rhs) M.exprnoremap('n', lhs, rhs) end
 
 return M
+-- stylua: ignore end

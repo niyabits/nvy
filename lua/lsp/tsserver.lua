@@ -29,7 +29,6 @@ nvim_lsp.tsserver.setup({
 
 			-- update imports on file move
 			update_imports_on_move = true,
-			require_confirmation_on_move = true,
 		})
 
 		-- required to fix code action ranges

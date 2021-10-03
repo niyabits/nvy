@@ -4,6 +4,7 @@ return require("packer").startup(function(use)
 	use({ "wbthomason/packer.nvim", opt = true }) -- Packer Itself
 
 	use("yashguptaz/calvera-dark.nvim") -- Theme
+	use("folke/tokyonight.nvim")
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -49,6 +50,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use("nvim-treesitter/nvim-treesitter-textobjects")
+
 	use({ "nvim-treesitter/playground" })
 
 	use({ "nvim-treesitter/nvim-treesitter-refactor" })
@@ -58,9 +61,10 @@ return require("packer").startup(function(use)
 		config = function()
 			require("nvim-autopairs").setup({})
 
-			require("nvim-autopairs.completion.compe").setup({
+			require("nvim-autopairs.completion.cmp").setup({
 				map_cr = true, --  map <CR> on insert mode
 				map_complete = true, -- it will auto insert `(` after select function or method item
+				auto_select = true, -- automatically select the first item
 			})
 		end,
 	})
@@ -80,9 +84,13 @@ return require("packer").startup(function(use)
 	})
 
 	use({
-		"hrsh7th/nvim-compe",
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lsp",
+		},
 		config = function()
-			require("plugins/compe")
+			require("plugins/cmp")
 		end,
 	})
 

@@ -2,8 +2,9 @@ local nvim_lsp = require("lspconfig")
 local utils = require("lsp/utils")
 local common_on_attach = utils.common_on_attach
 
+-- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Column Sign for Diagnostics
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
