@@ -4,5 +4,5 @@ vim.g.calvera_contrast = true
 vim.g.calvera_hide_eob = true
 
 require("calvera").set() ]]
-vim.cmd([[colorscheme tokyonight]])
 vim.g.tokyonight_style = "night"
+vim.cmd([[colorscheme tokyonight]])

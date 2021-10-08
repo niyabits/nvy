@@ -86,8 +86,12 @@ return require("packer").startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
+			"L3MON4D3/LuaSnip",
+			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lua",
+			"saadparwaiz1/cmp_luasnip",
 		},
 		config = function()
 			require("plugins/cmp")
@@ -101,19 +105,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	use({
-		"hrsh7th/vim-vsnip",
-		wants = "friendly-snippets",
-		event = "InsertCharPre",
-		config = function()
-			require("plugins/vsnip")
-		end,
-	})
-
-	use({
-		"rafamadriz/friendly-snippets",
-		event = "InsertCharPre",
-	})
+	use("rafamadriz/friendly-snippets")
 
 	use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
