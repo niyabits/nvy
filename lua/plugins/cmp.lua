@@ -4,9 +4,25 @@ local cmp = require("cmp")
 
 local exprinoremap = Utils.exprinoremap
 
-local s = luasnip.snippet
-local t = luasnip.text_node
-s("trigger", t("Wow! Text!"))
+-- Little hacky function I got from —
+-- https://github.com/L3MON4D3/LuaSnip/blob/master/lua/luasnip/loaders/from_vscode.lua#L173-L180
+local function get_snippets_rtp()
+	return vim.tbl_map(function(itm)
+		return vim.fn.fnamemodify(itm, ":h")
+	end, vim.api.nvim_get_runtime_file(
+		"package.json",
+		true
+	))
+end
+
+opts = {
+	paths = {
+		vim.fn.stdpath("config") .. "/snips/",
+		get_snippets_rtp()[1],
+	},
+}
+
+require("luasnip.loaders.from_vscode").lazy_load(opts)
 
 cmp.setup({
 	snippet = {
@@ -24,7 +40,6 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
 
-		-- ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
 		["<Tab>"] = function(fallback)
 			if vim.fn.pumvisible() == 1 then
 				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
