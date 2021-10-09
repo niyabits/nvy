@@ -11,6 +11,9 @@ require("nvim-tree").setup({
 			},
 		},
 	},
+	update_focused_file = {
+		enable = true,
+	},
 })
 
 vim.g.nvim_tree_icons = {
