@@ -142,4 +142,6 @@ return require("packer").startup(function(use)
 	use({ "akinsho/nvim-toggleterm.lua" })
 
 	use({ "iamcco/markdown-preview.nvim" })
+
+	use("ggandor/lightspeed.nvim")
 end)
