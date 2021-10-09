@@ -34,15 +34,15 @@ cmp.setup({
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
+			select = false,
 		}),
 
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
 
 		["<Tab>"] = function(fallback)
-			if vim.fn.pumvisible() == 1 then
-				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
+			if cmp.visible() then
+				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
 				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
 			else
@@ -51,8 +51,8 @@ cmp.setup({
 		end,
 
 		["<S-Tab>"] = function(fallback)
-			if vim.fn.pumvisible() == 1 then
-				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, true, true), "n")
+			if cmp.visible() then
+				cmp.select_prev_item()
 			elseif luasnip.jumpable(-1) then
 				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
 			else
@@ -64,7 +64,10 @@ cmp.setup({
 
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-c>"] = cmp.mapping.close(),
 	},
+
+	preselect = cmp.PreselectMode.None,
 
 	sources = {
 		{ name = "nvim_lsp" },
