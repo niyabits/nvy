@@ -1,7 +1,16 @@
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
+-- lsp_diagnostics = true,
 require("nvim-tree").setup({
-	lsp_diagnostics = true,
+diagnostics = {
+    enable = false,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    }
+  },
 	hijack_cursor = true,
 	view = {
 		mappings = {
