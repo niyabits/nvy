@@ -38,7 +38,6 @@ inoremap("<A-k>", "<Esc>:m .-2<CR>==gi")
 
 -- jk to normal mode
 inoremap("jk", "<Esc>")
-vnoremap("jk", "<Esc>")
 
 -- Yank to end of line
 nnoremap("Y", "y$")
