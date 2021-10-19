@@ -1,6 +1,6 @@
 local M = {}
 
-function M.common_on_attach(_, bufnr)
+function M.common_on_attach(client, bufnr)
 	-- Borders
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
@@ -35,6 +35,11 @@ function M.common_on_attach(_, bufnr)
 	bufnnoremap("<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
 	bufnnoremap("<leader>so", [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+
+  if client.resolved_capabilities.document_formatting then
+      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+  end
+
 end
 
 return M

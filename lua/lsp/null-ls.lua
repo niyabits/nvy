@@ -12,8 +12,7 @@ null_ls.config({
 })
 
 require("lspconfig")["null-ls"].setup({
-	-- see the nvim-lspconfig documentation for available configuration options
 	on_attach = function(client)
 		common_on_attach(client)
-  end
+	end,
 })
