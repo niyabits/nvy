@@ -7,6 +7,7 @@ null_ls.config({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.diagnostics.write_good,
+		null_ls.builtins.formatting.gofmt,
 	},
 })
 
@@ -14,9 +15,5 @@ require("lspconfig")["null-ls"].setup({
 	-- see the nvim-lspconfig documentation for available configuration options
 	on_attach = function(client)
 		common_on_attach(client)
-
-		if client.resolved_capabilities.document_formatting then
-			vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
-		end
-	end,
+  end
 })
