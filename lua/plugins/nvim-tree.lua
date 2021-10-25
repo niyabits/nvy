@@ -2,17 +2,18 @@ local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
 -- lsp_diagnostics = true,
 require("nvim-tree").setup({
-diagnostics = {
-    enable = false,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    }
-  },
+	diagnostics = {
+		enable = false,
+		icons = {
+			hint = "",
+			info = "",
+			warning = "",
+			error = "",
+		},
+	},
 	hijack_cursor = true,
 	view = {
+		width = 35,
 		mappings = {
 			list = {
 				{ key = { "l", "<CR>", "<2-LeftMouse>" }, cb = tree_cb("edit") },
