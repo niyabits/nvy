@@ -26,6 +26,3 @@ end
 require("lsp/null-ls")
 require("lsp/tsserver")
 require("lsp/gopls")
-
--- Format on Save
-vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)]])
