@@ -20,6 +20,7 @@ nvim_lsp.tsserver.setup({
 			enable_import_on_completion = true,
 
 			-- eslint
+			eslint_enable_code_actions = true,
 			eslint_bin = "eslint_d",
 			eslint_enable_diagnostics = true,
 

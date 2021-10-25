@@ -8,6 +8,7 @@ null_ls.config({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.diagnostics.write_good,
 		null_ls.builtins.formatting.gofmt,
+		null_ls.builtins.formatting.stylelint,
 	},
 })
 
