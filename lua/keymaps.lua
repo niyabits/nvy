@@ -42,6 +42,10 @@ inoremap("jk", "<Esc>")
 -- Yank to end of line
 nnoremap("Y", "y$")
 
+-- Copy to system clipboard
+nnoremap("<leader>y", '"+y')
+vnoremap("<leader>y", '"+y')
+
 -- Center Next, Prev and Line Concatenate
 -- nnoremap("n", "nzzzv")
 nnoremap("N", "Nzzzv")
