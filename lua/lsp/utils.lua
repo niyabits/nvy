@@ -26,7 +26,7 @@ function M.common_on_attach(client, bufnr)
 	bufnnoremap("<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
 	bufnnoremap("<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 	bufnnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-	bufnnoremap("gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+	bufnnoremap("gR", "<cmd>lua vim.lsp.buf.references()<CR>")
 	--  bufnnoremap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 	-- vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
 	bufnnoremap("ge", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
@@ -36,10 +36,9 @@ function M.common_on_attach(client, bufnr)
 	bufnnoremap("<leader>so", [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 
-  if client.resolved_capabilities.document_formatting then
-      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-  end
-
+	if client.resolved_capabilities.document_formatting then
+		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+	end
 end
 
 return M
