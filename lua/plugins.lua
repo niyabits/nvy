@@ -144,4 +144,6 @@ return require("packer").startup(function(use)
 	use({ "iamcco/markdown-preview.nvim" })
 
 	use("ggandor/lightspeed.nvim")
+
+	use("styled-components/vim-styled-components")
 end)
