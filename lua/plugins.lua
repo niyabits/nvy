@@ -59,13 +59,15 @@ return require("packer").startup(function(use)
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
-			require("nvim-autopairs").setup({})
-
-			require("nvim-autopairs.completion.cmp").setup({
+			require("nvim-autopairs").setup({
 				map_cr = true, --  map <CR> on insert mode
 				map_complete = true, -- it will auto insert `(` after select function or method item
 				auto_select = true, -- automatically select the first item
 			})
+
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			local cmp = require("cmp")
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 		end,
 	})
 
@@ -109,6 +111,8 @@ return require("packer").startup(function(use)
 
 	use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
+	use("simrat39/symbols-outline.nvim")
+
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
@@ -123,13 +127,16 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use("tpope/vim-fugitive")
+
 	use({ "b3nj5m1n/kommentary" })
 
 	use({
 		"folke/which-key.nvim",
 		config = function()
-			require("which-key").setup({})
+			require("plugins/which-key")
 		end,
+		event = "BufWinEnter",
 	})
 
 	use({

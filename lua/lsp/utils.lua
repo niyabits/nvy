@@ -7,6 +7,7 @@ function M.common_on_attach(client, bufnr)
 		vim.lsp.handlers.signature_help,
 		{ border = "single" }
 	)
+
 	-- Keymaps
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -18,23 +19,24 @@ function M.common_on_attach(client, bufnr)
 
 	bufnnoremap("gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
 	bufnnoremap("gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
-	bufnnoremap("K", "<Cmd>lua vim.lsp.buf.hover()<CR>")
+	bufnnoremap("gR", "<cmd>lua vim.lsp.buf.rename()<CR>")
+	bufnnoremap("gr", "<cmd>Telescope lsp_references<CR>")
 	bufnnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+	bufnnoremap("K", '<Cmd>lua vim.lsp.buf.hover({ border = "single" })<CR>')
 	bufnnoremap("<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+
+	bufnnoremap("ge", '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "single" })<CR>')
+	bufnnoremap("[e", '<cmd>lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = "single" }})<CR>')
+	bufnnoremap("]e", '<cmd>lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = "single" }})<CR>')
+
 	bufnnoremap("<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
 	bufnnoremap("<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
 	bufnnoremap("<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
-	bufnnoremap("<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-	bufnnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-	bufnnoremap("gR", "<cmd>lua vim.lsp.buf.references()<CR>")
-	--  bufnnoremap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-	-- vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
-	bufnnoremap("ge", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
-	bufnnoremap("[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
-	bufnnoremap("]e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
-	bufnnoremap("<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
-	bufnnoremap("<leader>so", [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])
-	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+
+	-- bufnnoremap("<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
+	-- bufnnoremap("<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+	-- bufnnoremap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+	-- bufnnoremap("v", "<leader>ca", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
 
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")

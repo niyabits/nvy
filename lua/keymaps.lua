@@ -1,4 +1,3 @@
--- local wk = require("which-key")
 local Utils = require("utils")
 
 local exprnnoremap = Utils.exprnnoremap
@@ -14,6 +13,8 @@ vim.g.maplocalleader = " "
 
 nnoremap("<C-p>", [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 nnoremap("<leader>e", [[<cmd>NvimTreeToggle<CR>]])
+nnoremap("<leader>n", [[<cmd>Neogit<CR>]])
+nnoremap("<leader>s", [[<cmd>SymbolsOutline<CR>]])
 
 -- Switch Tabs
 nnoremap("<TAB>", ":BufferLineCycleNext<CR>")
