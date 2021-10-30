@@ -7,11 +7,24 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Column Sign for Diagnostics
-local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
+-- Neovim 0.5+
+--[[ local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
 
 for type, icon in pairs(signs) do
 	local hl = "LspDiagnosticsSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end ]]
+
+-- Neovim 0.6+
+local signs = {
+	{ name = "DiagnosticSignError", text = "" },
+	{ name = "DiagnosticSignWarn", text = "" },
+	{ name = "DiagnosticSignHint", text = "" },
+	{ name = "DiagnosticSignInfo", text = "" },
+}
+
+for _, sign in ipairs(signs) do
+	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
 end
 
 -- Enable the following language servers
@@ -23,6 +36,6 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-require("lsp/null-ls")
 require("lsp/tsserver")
+require("lsp/null-ls")
 require("lsp/gopls")
