@@ -34,6 +34,7 @@ return require("packer").startup(function(use)
 		config = function()
 			require("bufferline").setup({})
 		end,
+		event = "BufWinEnter",
 	})
 
 	use({
@@ -127,9 +128,19 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use({
+		"pwntester/octo.nvim",
+		config = function()
+			require("octo").setup({})
+		end,
+	})
+
 	use("tpope/vim-fugitive")
 
-	use({ "b3nj5m1n/kommentary" })
+	use({
+		"b3nj5m1n/kommentary",
+		event = "BufRead",
+	})
 
 	use({
 		"folke/which-key.nvim",
@@ -146,11 +157,19 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	use({ "akinsho/nvim-toggleterm.lua" })
+	use({ "akinsho/nvim-toggleterm.lua", event = "BufWinEnter" })
 
 	use({ "iamcco/markdown-preview.nvim" })
 
 	use("ggandor/lightspeed.nvim")
 
 	use("styled-components/vim-styled-components")
+
+	use({
+		"vuki656/package-info.nvim",
+		requires = "MunifTanjim/nui.nvim",
+		config = function()
+			require("package-info").setup()
+		end,
+	})
 end)
