@@ -37,3 +37,18 @@ wk.register({
 		t = { [[<cmd>TroubleToggle<CR>]], "Toggle" },
 	},
 }, { prefix = "<leader>" })
+
+wk.register({
+	n = {
+		name = "NPM Packages",
+		s = { [[<cmd>lua require('package-info').show()<CR>]], "Show" },
+		h = { [[<cmd>lua require('package-info').hide()<CR>]], "Hide" },
+		u = { [[<cmd>lua require('package-info').update()<CR>]], "Update" },
+		d = { [[<cmd>lua require('package-info').delete()<CR>]], "Delete" },
+		i = { [[<cmd>lua require('package-info').install()<CR>]], "Install" },
+		r = { [[<cmd>lua require('package-info').reinstall()<CR>]], "Reinstall" },
+		c = { [[<cmd>lua require('package-info').change_version()<CR>]], "Change Version" },
+	},
+}, {
+	prefix = "<leader>",
+})
