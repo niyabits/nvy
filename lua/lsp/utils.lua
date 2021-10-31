@@ -26,8 +26,8 @@ function M.common_on_attach(client, bufnr)
 	bufnnoremap("<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
 	bufnnoremap("ge", '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "single" })<CR>')
-	bufnnoremap("[e", '<cmd>lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = "single" }})<CR>')
-	bufnnoremap("]e", '<cmd>lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = "single" }})<CR>')
+	bufnnoremap("[e", '<cmd>lua vim.diagnostic.goto_prev({ popup_opts = { border = "single" }})<CR>')
+	bufnnoremap("]e", '<cmd>lua vim.diagnostic.goto_next({ popup_opts = { border = "single" }})<CR>')
 
 	bufnnoremap("<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
 	bufnnoremap("<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
