@@ -135,6 +135,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use("github/copilot.vim")
+
 	use("tpope/vim-fugitive")
 
 	use({
