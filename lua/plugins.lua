@@ -108,6 +108,14 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use({
+		"kosayoda/nvim-lightbulb",
+		config = function()
+			require("nvim-lightbulb").update_lightbulb()
+			vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
+		end,
+	})
+
 	use("rafamadriz/friendly-snippets")
 
 	use("jose-elias-alvarez/nvim-lsp-ts-utils")
@@ -117,6 +125,13 @@ return require("packer").startup(function(use)
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+	})
+
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		config = function()
+			require("refactoring").setup()
+		end,
 	})
 
 	use("TimUntersberger/neogit")
@@ -172,6 +187,16 @@ return require("packer").startup(function(use)
 		requires = "MunifTanjim/nui.nvim",
 		config = function()
 			require("package-info").setup()
+		end,
+	})
+
+	use({
+		"rmagatti/auto-session",
+		config = function()
+			require("auto-session").setup({
+				log_level = "info",
+				auto_session_suppress_dirs = { "~/" },
+			})
 		end,
 	})
 end)
