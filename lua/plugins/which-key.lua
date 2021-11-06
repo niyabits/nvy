@@ -24,8 +24,11 @@ wk.register({
 wk.register({
 	t = {
 		name = "Telescope",
-		g = { [[<cmd>Telescope live_grep<CR>]], "Grep" },
+		l = { [[<cmd>Telescope live_grep<CR>]], "Live Grep" },
+		gb = { [[<cmd>Telescope git_branches<CR>]], "Git Branches" },
+		gs = { [[<cmd>Telescope git_status<CR>]], "Git Status" },
 		s = { [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], "Symbols (LSP)" },
+		c = { [[<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>]], "Code Actions (LSP)" },
 	},
 }, {
 	prefix = "<leader>",
