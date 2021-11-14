@@ -1,16 +1,12 @@
 local M = {}
 
-vim.cmd([[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]])
-vim.cmd([[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
-
 function M.common_on_attach(client, bufnr)
-	-- Customize diagnostics
-	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-		virtual_text = false,
-		signs = true,
-		underline = true,
-		update_in_insert = false,
-	})
+	-- Borders
+	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+		vim.lsp.handlers.signature_help,
+		{ border = "single" }
+	)
 
 	-- Keymaps
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -30,8 +26,8 @@ function M.common_on_attach(client, bufnr)
 	bufnnoremap("<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
 	bufnnoremap("ge", '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "single" })<CR>')
-	bufnnoremap("[e", '<cmd>lua vim.diagnostic.goto_prev({ border = "single" })<CR>')
-	bufnnoremap("]e", '<cmd>lua vim.diagnostic.goto_next({ border = "single" })<CR>')
+	bufnnoremap("[e", '<cmd>lua vim.diagnostic.goto_prev({ popup_opts = { border = "single" }})<CR>')
+	bufnnoremap("]e", '<cmd>lua vim.diagnostic.goto_next({ popup_opts = { border = "single" }})<CR>')
 
 	bufnnoremap("<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
 	bufnnoremap("<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")

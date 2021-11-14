@@ -16,7 +16,7 @@ nnoremap("<leader>e", [[<cmd>NvimTreeToggle<CR>]])
 nnoremap("<leader>g", [[<cmd>Neogit<CR>]])
 nnoremap("<leader>s", [[<cmd>SymbolsOutline<CR>]])
 
--- Switch Buffers
+-- Switch Tabs
 nnoremap("<TAB>", ":BufferLineCycleNext<CR>")
 nnoremap("<S-TAB>", ":BufferLineCyclePrev<CR>")
 
