@@ -24,6 +24,13 @@ opts = {
 
 require("luasnip.loaders.from_vscode").lazy_load(opts)
 
+-- Copilot
+vim.b.copilot_enabled = false
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+
+vim.api.nvim_set_keymap("i", "<Right>", 'copilot#Accept("")', { expr = true, silent = true })
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -40,7 +47,7 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
 
-		--[[ ["<Tab>"] = function(fallback)
+		["<Tab>"] = function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
@@ -48,13 +55,12 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, ]]
-
+		end,
 		["<S-Tab>"] = function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
 			elseif luasnip.jumpable(-1) then
-				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+				luasnip.jump(-1)
 			else
 				fallback()
 			end

@@ -32,7 +32,11 @@ return require("packer").startup(function(use)
 	use({
 		"akinsho/nvim-bufferline.lua",
 		config = function()
-			require("bufferline").setup({})
+			require("bufferline").setup({
+				options = {
+					offsets = { { filetype = "NvimTree" } },
+				},
+			})
 		end,
 		event = "BufWinEnter",
 	})
@@ -120,12 +124,15 @@ return require("packer").startup(function(use)
 
 	use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
-	use("simrat39/symbols-outline.nvim")
-
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	})
+
+	-- Java
+	use("mfussenegger/nvim-jdtls")
+
+	use("simrat39/symbols-outline.nvim")
 
 	use({
 		"ThePrimeagen/refactoring.nvim",
@@ -134,7 +141,24 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	use("TimUntersberger/neogit")
+	use({
+		"TimUntersberger/neogit",
+		config = function()
+			require("neogit").setup({
+				integrations = {
+					diffview = true,
+				},
+			})
+		end,
+	})
+
+	use({
+		"sindrets/diffview.nvim",
+		config = function()
+			local cb = require("diffview.config").diffview_callback
+			require("diffview").setup({})
+		end,
+	})
 
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -197,6 +221,20 @@ return require("packer").startup(function(use)
 				log_level = "info",
 				auto_session_suppress_dirs = { "~/" },
 			})
+		end,
+	})
+
+	use({
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	})
+
+	use({
+		"nathom/filetype.nvim",
+		config = function()
+			require("filetype").setup({})
 		end,
 	})
 end)
