@@ -25,8 +25,11 @@ wk.register({
 	t = {
 		name = "Telescope",
 		l = { [[<cmd>Telescope live_grep<CR>]], "Live Grep" },
-		gb = { [[<cmd>Telescope git_branches<CR>]], "Git Branches" },
-		gs = { [[<cmd>Telescope git_status<CR>]], "Git Status" },
+		g = {
+			name = "Git",
+			b = { [[<cmd>Telescope git_branches<CR>]], "Git Branches" },
+			s = { [[<cmd>Telescope git_status<CR>]], "Git Status" },
+		},
 		s = { [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], "Symbols (LSP)" },
 		c = { [[<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>]], "Code Actions (LSP)" },
 	},
@@ -51,6 +54,17 @@ wk.register({
 		i = { [[<cmd>lua require('package-info').install()<CR>]], "Install" },
 		r = { [[<cmd>lua require('package-info').reinstall()<CR>]], "Reinstall" },
 		c = { [[<cmd>lua require('package-info').change_version()<CR>]], "Change Version" },
+	},
+}, {
+	prefix = "<leader>",
+})
+
+wk.register({
+	b = {
+		name = "Buffers",
+		n = { [[<cmd>BufferLineMoveNext<CR>]], "Move Next" },
+		p = { [[<cmd>BufferLineMovePrev<CR>]], "Move Prev" },
+		s = { [[<cmd>BufferLineSortByDirectory<CR>]], "Sort by Directory" },
 	},
 }, {
 	prefix = "<leader>",
