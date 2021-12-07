@@ -18,11 +18,7 @@ require("packer").startup(function()
 	use({
 		"kyazdani42/nvim-tree.lua",
 		config = function()
-			require("nvim-tree").setup({
-				update_focused_file = {
-					enable = true,
-				},
-			})
+			require("plugins/nvim-tree")
 		end,
 	})
 	use({

@@ -37,3 +37,13 @@ vim.cmd([[colorscheme tokyonight]])
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
+
+-- Folds
+vim.wo.foldmethod     = "expr"
+vim.wo.foldexpr       = "nvim_treesitter#foldexpr()"
+vim.o.foldtext        = 
+  [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
+vim.wo.fillchars      = "fold: "
+vim.wo.foldnestmax    = 3
+vim.wo.foldminlines   = 1 
+vim.wo.foldlevel      = 99

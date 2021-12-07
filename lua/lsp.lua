@@ -1,5 +1,3 @@
-require("completion_kinds").setup()
-
 -- Signs on Gutter
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -56,8 +54,6 @@ local on_attach = function(client, bufnr)
 		opts
 	)
 
-	vim.cmd([[ autocmd CursorHold,CursorHoldI * lua require('code_action_utils').code_action_listener() ]])
-
 	-- TypeScript Mess
 	if client.config.flags then
 		client.config.flags.allow_incremental_sync = true
@@ -86,12 +82,19 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
--- Enable the following language servers
-local servers = { "clangd", "rust_analyzer", "tsserver" }
-for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup({
+local lsp_installer = require("nvim-lsp-installer")
+
+-- Register a handler for all installed servers.
+lsp_installer.on_server_ready(function(server)
+	local opts = {
 		init_options = require("nvim-lsp-ts-utils").init_options,
 		on_attach = on_attach,
 		capabilities = capabilities,
-	})
-end
+	}
+
+	if server.name == "tsserver" then
+		--     opts.root_dir = function() ... end
+	end
+
+	server:setup(opts)
+end)
