@@ -1,4 +1,34 @@
 -- DETAILS THAT I AM YET TO CATEGOIRZE
+-- Highlight on yank
+vim.api.nvim_exec(
+	[[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup end
+]],
+	false
+)
+
+vim.g.tokyonight_style = "night"
+
+vim.cmd([[colorscheme tokyonight]])
+
+require("lualine").setup({
+	options = {
+		-- ... your lualine config
+		theme = "tokyonight",
+		-- ... your lualine config
+	},
+})
+
+-- Signs on Gutter
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 -- Borders in Neovim Globally
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)

@@ -1,5 +1,5 @@
 require("sets")
-require("plugins")
+require("plugins/packer")
 require("maps")
 require("lsp")
 require("shit")
