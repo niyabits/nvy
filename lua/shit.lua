@@ -15,10 +15,42 @@ vim.g.tokyonight_style = "night"
 vim.cmd([[colorscheme tokyonight]])
 
 require("lualine").setup({
-	options = {
-		-- ... your lualine config
-		theme = "tokyonight",
-		-- ... your lualine config
+	options = { theme = "tokyonight" },
+	sections = {
+		lualine_a = { "mode" },
+		lualine_b = { "branch" },
+		lualine_c = { "filename" },
+		lualine_x = {
+			{
+				"diagnostics",
+				sources = { "nvim_diagnostic" },
+				sections = { "error", "warn", "info" },
+				symbols = { error = " ", warn = " ", info = " " },
+			},
+			{
+				function()
+					local msg = "No Active Lsp"
+					local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+					local clients = vim.lsp.get_active_clients()
+					if next(clients) == nil then
+						return msg
+					end
+					for _, client in ipairs(clients) do
+						local filetypes = client.config.filetypes
+						if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+							return client.name
+						end
+					end
+					return msg
+				end,
+				icon = "",
+				color = { fg = "#ffffff", gui = "bold" },
+				separator = "",
+			},
+			"filetype",
+		},
+		lualine_y = { "progress" },
+		lualine_z = { "location" },
 	},
 })
 
@@ -167,6 +199,8 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+		{ name = "calc" },
+		{ name = "buffer" },
 	},
 	formatting = {
 		format = function(entry, vim_item)
